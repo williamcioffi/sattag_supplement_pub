@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>7 Goniometer | sattag_supplement</title>
+  <meta name="description" content="a supplement to the official Wildlife Computers documentation for use at DUML">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="7 Goniometer | sattag_supplement" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://wrc14.pages.oit.duke.edu/sattag_supplement/" />
+  
+  <meta property="og:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
+  <meta name="github-repo" content="williamcioffi/sattag_supplement" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Goniometer | sattag_supplement" />
+  
+  <meta name="twitter:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
+  
+
+<meta name="author" content="wrc">
+
+
+<meta name="date" content="2019-11-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="sattagutils.html">
+<link rel="next" href="failures.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">sattag_supplement</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="todo.html"><a href="todo.html"><i class="fa fa-check"></i><b>1</b> TODO</a></li>
+<li class="chapter" data-level="2" data-path="the-tags.html"><a href="the-tags.html"><i class="fa fa-check"></i><b>2</b> The Tags</a><ul>
+<li class="chapter" data-level="2.1" data-path="the-tags.html"><a href="the-tags.html#spot"><i class="fa fa-check"></i><b>2.1</b> Spot</a></li>
+<li class="chapter" data-level="2.2" data-path="the-tags.html"><a href="the-tags.html#splash10"><i class="fa fa-check"></i><b>2.2</b> SPLASH10</a></li>
+<li class="chapter" data-level="2.3" data-path="the-tags.html"><a href="the-tags.html#fastloc-splash10-f"><i class="fa fa-check"></i><b>2.3</b> Fastloc (SPLASH10-F)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mk10-host.html"><a href="mk10-host.html"><i class="fa fa-check"></i><b>3</b> MK10 Host</a><ul>
+<li class="chapter" data-level="3.1" data-path="mk10-host.html"><a href="mk10-host.html#recording-settings"><i class="fa fa-check"></i><b>3.1</b> Recording Settings</a></li>
+<li class="chapter" data-level="3.2" data-path="mk10-host.html"><a href="mk10-host.html#detailed-settings-descriptions-and-comments"><i class="fa fa-check"></i><b>3.2</b> Detailed settings descriptions and comments</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mk10-host.html"><a href="mk10-host.html#hostsettings"><i class="fa fa-check"></i><b>3.2.1</b> Host Settings</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mk10-host.html"><a href="mk10-host.html#time-and-date-settings"><i class="fa fa-check"></i><b>3.2.2</b> Time and Date Settings</a></li>
+<li class="chapter" data-level="3.2.3" data-path="mk10-host.html"><a href="mk10-host.html#general-settings"><i class="fa fa-check"></i><b>3.2.3</b> General Settings</a></li>
+<li class="chapter" data-level="3.2.4" data-path="mk10-host.html"><a href="mk10-host.html#data-to-archive-settings"><i class="fa fa-check"></i><b>3.2.4</b> Data to Archive Settings</a></li>
+<li class="chapter" data-level="3.2.5" data-path="mk10-host.html"><a href="mk10-host.html#data-to-transmit-settings"><i class="fa fa-check"></i><b>3.2.5</b> Data to Transmit Settings</a></li>
+<li class="chapter" data-level="3.2.6" data-path="mk10-host.html"><a href="mk10-host.html#histogram-collection"><i class="fa fa-check"></i><b>3.2.6</b> Histogram Collection</a></li>
+<li class="chapter" data-level="3.2.7" data-path="mk10-host.html"><a href="mk10-host.html#time-series-messages"><i class="fa fa-check"></i><b>3.2.7</b> Time series messages</a></li>
+<li class="chapter" data-level="3.2.8" data-path="mk10-host.html"><a href="mk10-host.html#dive-and-timeline-definition"><i class="fa fa-check"></i><b>3.2.8</b> Dive and Timeline Definition</a></li>
+<li class="chapter" data-level="3.2.9" data-path="mk10-host.html"><a href="mk10-host.html#behavior-messages"><i class="fa fa-check"></i><b>3.2.9</b> Behavior Messages</a></li>
+<li class="chapter" data-level="3.2.10" data-path="mk10-host.html"><a href="mk10-host.html#stomach-temperature-messages"><i class="fa fa-check"></i><b>3.2.10</b> Stomach Temperature Messages</a></li>
+<li class="chapter" data-level="3.2.11" data-path="mk10-host.html"><a href="mk10-host.html#haulout-defintion"><i class="fa fa-check"></i><b>3.2.11</b> Haulout Defintion</a></li>
+<li class="chapter" data-level="3.2.12" data-path="mk10-host.html"><a href="mk10-host.html#buffer"><i class="fa fa-check"></i><b>3.2.12</b> Transmission Control</a></li>
+<li class="chapter" data-level="3.2.13" data-path="mk10-host.html"><a href="mk10-host.html#collect-days"><i class="fa fa-check"></i><b>3.2.13</b> Collection days</a></li>
+<li class="chapter" data-level="3.2.14" data-path="mk10-host.html"><a href="mk10-host.html#relative-transmit-priorities"><i class="fa fa-check"></i><b>3.2.14</b> Relative transmit Priorities</a></li>
+<li class="chapter" data-level="3.2.15" data-path="mk10-host.html"><a href="mk10-host.html#transmit-days"><i class="fa fa-check"></i><b>3.2.15</b> When to Transmit Settings</a></li>
+<li class="chapter" data-level="3.2.16" data-path="mk10-host.html"><a href="mk10-host.html#transmit-days-1"><i class="fa fa-check"></i><b>3.2.16</b> Transmit Days</a></li>
+<li class="chapter" data-level="3.2.17" data-path="mk10-host.html"><a href="mk10-host.html#transmit-budget"><i class="fa fa-check"></i><b>3.2.17</b> Daily Transmit Allowance</a></li>
+<li class="chapter" data-level="3.2.18" data-path="mk10-host.html"><a href="mk10-host.html#channel-settings"><i class="fa fa-check"></i><b>3.2.18</b> Channel Settings</a></li>
+<li class="chapter" data-level="3.2.19" data-path="mk10-host.html"><a href="mk10-host.html#depth"><i class="fa fa-check"></i><b>3.2.19</b> Depth</a></li>
+<li class="chapter" data-level="3.2.20" data-path="mk10-host.html"><a href="mk10-host.html#internal-temperature"><i class="fa fa-check"></i><b>3.2.20</b> Internal Temperature</a></li>
+<li class="chapter" data-level="3.2.21" data-path="mk10-host.html"><a href="mk10-host.html#external-temperature"><i class="fa fa-check"></i><b>3.2.21</b> External Temperature</a></li>
+<li class="chapter" data-level="3.2.22" data-path="mk10-host.html"><a href="mk10-host.html#depth-sensor-temperature"><i class="fa fa-check"></i><b>3.2.22</b> Depth Sensor Temperature</a></li>
+<li class="chapter" data-level="3.2.23" data-path="mk10-host.html"><a href="mk10-host.html#battery-voltage"><i class="fa fa-check"></i><b>3.2.23</b> Battery Voltage</a></li>
+<li class="chapter" data-level="3.2.24" data-path="mk10-host.html"><a href="mk10-host.html#wetdry"><i class="fa fa-check"></i><b>3.2.24</b> Wet/Dry</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datastreams.html"><a href="datastreams.html"><i class="fa fa-check"></i><b>4</b> Data streams</a><ul>
+<li class="chapter" data-level="4.1" data-path="datastreams.html"><a href="datastreams.html#date-formats"><i class="fa fa-check"></i><b>4.1</b> Date formats</a></li>
+<li class="chapter" data-level="4.2" data-path="datastreams.html"><a href="datastreams.html#malformed"><i class="fa fa-check"></i><b>4.2</b> Malformed</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="datastreams.html"><a href="datastreams.html#rawargos.csv"><i class="fa fa-check"></i><b>4.2.1</b> *-RawArgos.csv</a></li>
+<li class="chapter" data-level="4.2.2" data-path="datastreams.html"><a href="datastreams.html#fastgps.csv"><i class="fa fa-check"></i><b>4.2.2</b> *-FastGPS.csv</a></li>
+<li class="chapter" data-level="4.2.3" data-path="datastreams.html"><a href="datastreams.html#labels.csv"><i class="fa fa-check"></i><b>4.2.3</b> *-Labels.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="datastreams.html"><a href="datastreams.html#field-details"><i class="fa fa-check"></i><b>4.3</b> Field details</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datastreams.html"><a href="datastreams.html#behavior.csv"><i class="fa fa-check"></i><b>4.3.1</b> *-Behavior.csv</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datastreams.html"><a href="datastreams.html#series.csv"><i class="fa fa-check"></i><b>4.3.2</b> *-Series.csv</a></li>
+<li class="chapter" data-level="4.3.3" data-path="datastreams.html"><a href="datastreams.html#status.csv"><i class="fa fa-check"></i><b>4.3.3</b> *-Status.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datastreams.html"><a href="datastreams.html#fastlocstreams"><i class="fa fa-check"></i><b>4.4</b> Fastloc streams on the portal</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="settings-regimes.html"><a href="settings-regimes.html"><i class="fa fa-check"></i><b>5</b> Settings regimes</a><ul>
+<li class="chapter" data-level="5.1" data-path="settings-regimes.html"><a href="settings-regimes.html#behaviortags"><i class="fa fa-check"></i><b>5.1</b> BRS style behavior</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="settings-regimes.html"><a href="settings-regimes.html#key-settings"><i class="fa fa-check"></i><b>5.1.1</b> Key settings</a></li>
+<li class="chapter" data-level="5.1.2" data-path="settings-regimes.html"><a href="settings-regimes.html#benefits"><i class="fa fa-check"></i><b>5.1.2</b> Benefits</a></li>
+<li class="chapter" data-level="5.1.3" data-path="settings-regimes.html"><a href="settings-regimes.html#costs-and-risks"><i class="fa fa-check"></i><b>5.1.3</b> Costs and risks</a></li>
+<li class="chapter" data-level="5.1.4" data-path="settings-regimes.html"><a href="settings-regimes.html#beh-dep-res"><i class="fa fa-check"></i><b>5.1.4</b> Behavior data depth resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="settings-regimes.html"><a href="settings-regimes.html#seriestags"><i class="fa fa-check"></i><b>5.2</b> BRS style series only tags</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="settings-regimes.html"><a href="settings-regimes.html#benefits-1"><i class="fa fa-check"></i><b>5.2.1</b> Benefits</a></li>
+<li class="chapter" data-level="5.2.2" data-path="settings-regimes.html"><a href="settings-regimes.html#costs-and-risks-1"><i class="fa fa-check"></i><b>5.2.2</b> Costs and Risks</a></li>
+<li class="chapter" data-level="5.2.3" data-path="settings-regimes.html"><a href="settings-regimes.html#settings-decisions"><i class="fa fa-check"></i><b>5.2.3</b> Settings decisions</a></li>
+<li class="chapter" data-level="5.2.4" data-path="settings-regimes.html"><a href="settings-regimes.html#series-data-depth-resolution"><i class="fa fa-check"></i><b>5.2.4</b> Series data depth resolution</a></li>
+<li class="chapter" data-level="5.2.5" data-path="settings-regimes.html"><a href="settings-regimes.html#in-the-field-performance"><i class="fa fa-check"></i><b>5.2.5</b> In the field performance</a></li>
+<li class="chapter" data-level="5.2.6" data-path="settings-regimes.html"><a href="settings-regimes.html#future-directions"><i class="fa fa-check"></i><b>5.2.6</b> Future directions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="settings-regimes.html"><a href="settings-regimes.html#brs-fastloc-tags"><i class="fa fa-check"></i><b>5.3</b> BRS fastloc tags</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="settings-regimes.html"><a href="settings-regimes.html#brs3-fastloc-tags"><i class="fa fa-check"></i><b>5.3.1</b> BRS3 fastloc tags</a></li>
+<li class="chapter" data-level="5.3.2" data-path="settings-regimes.html"><a href="settings-regimes.html#brs4-fastloc-tags"><i class="fa fa-check"></i><b>5.3.2</b> BRS4 fastloc tags</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sattagutils.html"><a href="sattagutils.html"><i class="fa fa-check"></i><b>6</b> Sattagutils</a><ul>
+<li class="chapter" data-level="6.1" data-path="sattagutils.html"><a href="sattagutils.html#central-concepts"><i class="fa fa-check"></i><b>6.1</b> Central concepts</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="sattagutils.html"><a href="sattagutils.html#s4"><i class="fa fa-check"></i><b>6.1.1</b> S4</a></li>
+<li class="chapter" data-level="6.1.2" data-path="sattagutils.html"><a href="sattagutils.html#es4dataframe"><i class="fa fa-check"></i><b>6.1.2</b> es4dataframe</a></li>
+<li class="chapter" data-level="6.1.3" data-path="sattagutils.html"><a href="sattagutils.html#sattagstream"><i class="fa fa-check"></i><b>6.1.3</b> sattagstream</a></li>
+<li class="chapter" data-level="6.1.4" data-path="sattagutils.html"><a href="sattagutils.html#sattag-and-tagstack"><i class="fa fa-check"></i><b>6.1.4</b> sattag and tagstack</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="sattagutils.html"><a href="sattagutils.html#sattagutils-quickguide"><i class="fa fa-check"></i><b>6.2</b> Quick guide</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="goniometer.html"><a href="goniometer.html"><i class="fa fa-check"></i><b>7</b> Goniometer</a><ul>
+<li class="chapter" data-level="7.1" data-path="goniometer.html"><a href="goniometer.html#good-goniometers-and-bad-goniometers"><i class="fa fa-check"></i><b>7.1</b> Good goniometers and bad goniometers</a></li>
+<li class="chapter" data-level="7.2" data-path="goniometer.html"><a href="goniometer.html#how-to-test-a-receiver"><i class="fa fa-check"></i><b>7.2</b> How to test a receiver</a></li>
+<li class="chapter" data-level="7.3" data-path="goniometer.html"><a href="goniometer.html#decoding-goniometer-received-messages"><i class="fa fa-check"></i><b>7.3</b> Decoding Goniometer received messages</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="goniometer.html"><a href="goniometer.html#locations-and-fastgps"><i class="fa fa-check"></i><b>7.3.1</b> Locations and FastGPS</a></li>
+<li class="chapter" data-level="7.3.2" data-path="goniometer.html"><a href="goniometer.html#reintegrating-goniometer-downloaded-messages"><i class="fa fa-check"></i><b>7.3.2</b> Reintegrating Goniometer downloaded messages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="goniometer.html"><a href="goniometer.html#monitorgonio"><i class="fa fa-check"></i><b>7.4</b> monitorgonio</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="goniometer.html"><a href="goniometer.html#quick-guide"><i class="fa fa-check"></i><b>7.4.1</b> Quick guide</a></li>
+<li class="chapter" data-level="7.4.2" data-path="goniometer.html"><a href="goniometer.html#testing"><i class="fa fa-check"></i><b>7.4.2</b> Testing</a></li>
+<li class="chapter" data-level="7.4.3" data-path="goniometer.html"><a href="goniometer.html#one-word-of-caution-about-ptts-and-csvs"><i class="fa fa-check"></i><b>7.4.3</b> One word of caution about ptts and csvs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="failures.html"><a href="failures.html"><i class="fa fa-check"></i><b>8</b> Failure modes</a><ul>
+<li class="chapter" data-level="8.1" data-path="failures.html"><a href="failures.html#uncontrolled-pressure-transducer-drift"><i class="fa fa-check"></i><b>8.1</b> Uncontrolled pressure transducer drift</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="failures.html"><a href="failures.html#diagnosis"><i class="fa fa-check"></i><b>8.1.1</b> Diagnosis</a></li>
+<li class="chapter" data-level="8.1.2" data-path="failures.html"><a href="failures.html#examples"><i class="fa fa-check"></i><b>8.1.2</b> Examples</a></li>
+<li class="chapter" data-level="8.1.3" data-path="failures.html"><a href="failures.html#remedy"><i class="fa fa-check"></i><b>8.1.3</b> Remedy</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="failures.html"><a href="failures.html#pressure-transducer-drift-with-recovery"><i class="fa fa-check"></i><b>8.2</b> Pressure transducer drift with recovery</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="failures.html"><a href="failures.html#example"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="failures.html"><a href="failures.html#unexpected-resetting"><i class="fa fa-check"></i><b>8.3</b> Unexpected resetting</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="failures.html"><a href="failures.html#diagnosis-1"><i class="fa fa-check"></i><b>8.3.1</b> Diagnosis</a></li>
+<li class="chapter" data-level="8.3.2" data-path="failures.html"><a href="failures.html#examples-1"><i class="fa fa-check"></i><b>8.3.2</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="failures.html"><a href="failures.html#undersample"><i class="fa fa-check"></i><b>8.4</b> Conductivity sensor undersampling</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="failures.html"><a href="failures.html#diagnosis-2"><i class="fa fa-check"></i><b>8.4.1</b> Diagnosis</a></li>
+<li class="chapter" data-level="8.4.2" data-path="failures.html"><a href="failures.html#remedy-1"><i class="fa fa-check"></i><b>8.4.2</b> Remedy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="doppler-positions.html"><a href="doppler-positions.html"><i class="fa fa-check"></i><b>9</b> Doppler Positions</a><ul>
+<li class="chapter" data-level="9.1" data-path="doppler-positions.html"><a href="doppler-positions.html#the-x"><i class="fa fa-check"></i><b>9.1</b> The “X”</a></li>
+<li class="chapter" data-level="9.2" data-path="doppler-positions.html"><a href="doppler-positions.html#error-ellipses"><i class="fa fa-check"></i><b>9.2</b> Error ellipses</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Other resources</a><ul>
+<li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#wildlife-computers-documentation"><i class="fa fa-check"></i><b>10.1</b> Wildlife Computers Documentation</a></li>
+<li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#argos-documentation"><i class="fa fa-check"></i><b>10.2</b> Argos Documentation</a></li>
+<li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#goniometer-documentation"><i class="fa fa-check"></i><b>10.3</b> Goniometer Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="gloss.html"><a href="gloss.html"><i class="fa fa-check"></i><b>11</b> Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org/">made with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">sattag_supplement</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="goniometer" class="section level1">
+<h1><span class="header-section-number">7</span> Goniometer</h1>
+<p>The Woods Hole Group (formerly CLS America) rents and sells an antenna and receiver that they call the <a href="https://www.clsamerica.com/argos-Goniometer">Argos Goniometer</a>. This machine can pick up and directionalize Argos PTTs and even downloads messages.</p>
+<p>We set up our Goniometer to run in hyperterminal mode connected to a laptop on the boat. Basically this spits the Goniometer log out to a text file. There are a couple of different types of text that are displayed in that log but it is mostly comma separated values.</p>
+<p>From the R/V Barber and an 3.4 meter mast for the antenna, we have perhaps a range of 4 miles at maximum. Occasionally there are odd atmospheric days that greatly increase range. From Carolina boats (charter boats) like the F/V Kahuna or F/V Hog Wild we get more like 7 miles range. Accuracy of direction readings increases with proximity.</p>
+<div id="good-goniometers-and-bad-goniometers" class="section level2">
+<h2><span class="header-section-number">7.1</span> Good goniometers and bad goniometers</h2>
+<p>The goniometer comes in two main parts. The antenna and the receiver. We’ve never had an obvious problem with the performance of an antenna, and Wood’s Hole Group technical staff suggests that problems generally arise from the receiver.</p>
+<p>Below is a table of some of the antennas and receivers we’ve tested. All the serial numbers we’ve had have been in the form XXXX-3460313.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">S/N</th>
+<th>Instrument</th>
+<th>Function</th>
+<th>Condition</th>
+<th>Notes</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0062</td>
+<td>Receiver</td>
+<td>Good</td>
+<td>Fair</td>
+<td>GPS antenna plastic cracked<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></td>
+<td>DUML</td>
+</tr>
+<tr class="even">
+<td align="right">0059</td>
+<td>Antenna</td>
+<td>Good</td>
+<td>Good</td>
+<td></td>
+<td>DUML</td>
+</tr>
+<tr class="odd">
+<td align="right">0108</td>
+<td>Receiver</td>
+<td>Good</td>
+<td>Good</td>
+<td></td>
+<td>Rental</td>
+</tr>
+<tr class="even">
+<td align="right">0123</td>
+<td>Receiver</td>
+<td>Good</td>
+<td>Good</td>
+<td></td>
+<td>Rental</td>
+</tr>
+<tr class="odd">
+<td align="right">0060</td>
+<td>Receiver</td>
+<td>Bad</td>
+<td>Good</td>
+<td>poor signal / unreliable dir</td>
+<td>Rental</td>
+</tr>
+<tr class="even">
+<td align="right">Demo</td>
+<td>Receiver</td>
+<td>Incomplete</td>
+<td>Good</td>
+<td>no direction</td>
+<td>Rental</td>
+</tr>
+<tr class="odd">
+<td align="right">????</td>
+<td>Receiver</td>
+<td>Bad</td>
+<td>Good</td>
+<td>(BRS1) poor signal? / unreliable dir</td>
+<td>Rental</td>
+</tr>
+<tr class="even">
+<td align="right">0135</td>
+<td>Antenna</td>
+<td>Good</td>
+<td>Fair</td>
+<td>crossthreaded</td>
+<td>Rental</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="how-to-test-a-receiver" class="section level2">
+<h2><span class="header-section-number">7.2</span> How to test a receiver</h2>
+<p>The simplest test of a reciever is to a turn on a tag briefly. This is best done outside and away from RF interference, but I’ve also just done it in the house and it has worked fine. When the tag is within a few feet of the goniometer the signal strength should be 0 (the strongest possible). Directionality can also be checked in this way by moving the tag in relation to the antenna noting the position of the nubbin which indicates 0° (forward).</p>
+<p>A better test is with the antenna rigged onto the boat to walk around the boat the with a test tag transmitting to confirm signal strength and directionality. Again, you should be able to get the signal strength to 0 with this method. We’ve also tried leaving the test tag tansmitting on the dock and taking the small boat with a rigged antenna farther and farther away to do a simple range test. This can be tricky, because there are a lot of obstructions and interference near to shore. A better test could be performed at sea with two boats. It is also helpful to informally cross reference wich tags are being received between boats when there are multiple boats rigged with goniometers in the same general area tracking animals.</p>
+</div>
+<div id="decoding-goniometer-received-messages" class="section level2">
+<h2><span class="header-section-number">7.3</span> Decoding Goniometer received messages</h2>
+<p>I’ve written some code to decode the Goniometer received messages. Really I didn’t though, you still need <span id="dap">Argos Message Decoder.exe / DAP Processor</span> to decode the messages, but my code transforms the Goniometer type output into something that DAP Processor can read.</p>
+<p>Eventually this code will be wrapped into the <a href="sattagutils.html#sattagutils"><code>sattagutils</code></a> package, but for now it lives in a separate github <a href="https://github.com/williamcioffi/parsegonio">repo</a>. Included in the repo is a full working example.</p>
+<p>Goniometer log output usually looks something like this:</p>
+<pre><code>2017-05-02 14:42:07 : USB Connection to RXG134
+2017-05-10 21:00:38 Received : $NPRF,7,17,5,10,21,0,24,0A1FBD4,401677726,7,109,115,-128,-128,-4486401,2133099,10,192,D4049D095018019931F7F4B00960508485440003B6567FC0*46
+2017-05-10 21:00:58 Received : $NPRF,7,17,5,10,21,0,44,0A1FBD4,401677737,7,117,113,-127,-127,-4486412,2133177,2,192,D4040555502CF64C3207F4A009605084854000027FC00000*01</code></pre>
+<p>The $NPRF indicates that a platform has been favorited, but the log will also display messages from non favorited platforms with the label $NPR. The date, PTT, signal strength, bearing, among other things are recorded here. The last field is the data message.</p>
+<p>You can use <code>parsegonio()</code> to create a simulated prv file that DAP processor can read:</p>
+<pre class="sourceCode r"><code class="sourceCode r">gfile &lt;-<span class="st"> &quot;gonio_ex_log.txt&quot;</span>
+pttkey_file &lt;-<span class="st"> &quot;pttkey.csv&quot;</span>
+
+<span class="kw">source</span>(<span class="st">&quot;parsegonio.r&quot;</span>)
+output &lt;-<span class="st"> </span><span class="kw">parsegonio</span>(gfile, pttkey_file)
+<span class="kw">cat</span>(output, <span class="dt">file =</span> <span class="st">&quot;gonio_output.prv&quot;</span>)</code></pre>
+<p><code>parsegonio()</code> takes two parameters: <code>pttkey_file</code> is a csv which includes the PTT, hex, and DeployID of platforms of interest (only the PTT and hex are necessary) and <code>gfile</code> is an example Goniometer log.</p>
+<p>I’ve saved the output to gonio_output.prv here. It seems like there is some flexibility in the prv format and I’ve taken some liberties, mainly because I don’t entirely understand every part of the format. In my simulated prv, for each platform, all the messages from the Goniometer log are lumped under one satellite pass even if they occurred over many days. This isn’t realistic, but DAP Processor doesn’t seem to mind and satellite passes don’t mean anything in this use case anyway. In addition, real prv files include the solved Argos position. Obviously I don’t have one, so I just added a point right outside Pilkey.</p>
+<p>Once you have the simulated prv output you can just drag it into DAP processor. It helps to have preloaded a workspace with wch files as well as DAP will use the tag settings during decoding, though you can still get something even without them.</p>
+<div class="figure"><span id="fig:dap-window"></span>
+<img src="images/dap_ex.png" alt="The example goniometer messages included in parsegonio decoded by Argos Message Decoder.exe / DAP Processor" width="60%" />
+<p class="caption">
+Figure 7.1: The example goniometer messages included in parsegonio decoded by Argos Message Decoder.exe / DAP Processor
+</p>
+</div>
+<p>csv files can now be exported. Aome of these for instance, *-Locations.csv, *-Argos.csv will be complete junk. Others will mostly make sense, but be sure to ignore anything to do with Dopler locations or satellite passes.</p>
+<div id="locations-and-fastgps" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Locations and FastGPS</h3>
+<p>While the Goniometer received messages do not provide Doppler positions there are two ways in which they may assist with real locations.</p>
+<p>The first way we can more positional information, from Rob Schick, is to use Goniometer bearing to constrain the error ellipses on Doppler positions. See Rob’s figure <a href="https://osf.io/2mny3/">here on the osf</a>.</p>
+<p>The second way we can get additional positions is with the FastGPS messages. These messages consist of time and range information for GPS satellites, which are later solved (serverside) for positions. We can use <a href="goniometer.html#dap">DAP / Argos Message Decoder</a> to solve these positions after the fact even from Goniometer received FastGPS messages. If some of these messages were never received by the satellite then they represent added location data. Care must be taken, however, when thinking about the init locations. DAP / Argos Message Decoder decides which recent location is the best to use as an init and if there is nothing better recently it will use a Argos Doppler position, even a low quality one. Since I’ve simulated the <code>prv</code> file with a fake Doppler position, the FastGPS solver will sometimes use this to seed locations. I have not investigated in detail the consequences of this and have not assessed the accuracy of these positions, but it is on the list.</p>
+<p>I can think of a couple of solutions to make these FastGPS positions more accurate if indeed these erroneous init positions contribute a lot of positional error:</p>
+<ol style="list-style-type: decimal">
+<li>Use the study site centroid as the fake Argos Doppler position in <code>parsegonio</code>.</li>
+<li>Use the boat position as the fake Argos Doppler position in <code>parsegonio</code>. Since the range of the goniometer is limited, the boat should always be within 10 miles or so of the tag when it receives a message.</li>
+<li>Use the tag on position as the fake Argos Doppler position in <code>parsegonio</code>.</li>
+<li>See if I can set the Argos Doppler position to nothing in <code>parsegonio</code> (I think I can) and then combine the gonio <code>prv</code> with the real <code>prv</code> and re-decode them. DAP / Argos Message Decoder then should use a reasonable init location from whatever was received on the satellite nearest in time.</li>
+</ol>
+<p>1 is easiest. Then probably 3, then 2 and 4 are tied for being the most complicated since they pull in the most data from other sources.</p>
+<p>Probably at the very least should let the user set what they want the fake Argos Doppler position / positions to be in <code>parsegonio</code>. I’ll open an issue on the github repo.</p>
+</div>
+<div id="reintegrating-goniometer-downloaded-messages" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Reintegrating Goniometer downloaded messages</h3>
+<p>I haven’t dealt with this much yet. Obviously care should be taken when integrating Argos uplinked/downloaded messages and those from the Goniometer to avoid location, message block, or time confusion. Nevertheless goniometer downloaded data can provide additional dive data, additional fastloc positions (which DAP Processor can solve), as well as additional status messages to aid in error detection.</p>
+<p>To illustrate the possible complexities of this take a look at a draft BRS analysis flow chart showing some of the processing steps for integrating data between different sources (Fig. <a href="goniometer.html#fig:brsflowchart-sattag-processing">7.2</a>). You’ll see that we sometimes run two Goniometers at once. This step is also tricky because I’m not sure it can be automated. Is there a command line interface for DAP Processor? Or can we upload the simulated prv files to the Wildlife Computers portal using the API?</p>
+<div class="figure"><span id="fig:brsflowchart-sattag-processing"></span>
+<img src="images/brs_flowchart_sattagprocessing.png" alt="BRS analysis (draft) flow chart for sattag processing" width="90%" />
+<p class="caption">
+Figure 7.2: BRS analysis (draft) flow chart for sattag processing
+</p>
+</div>
+</div>
+</div>
+<div id="monitorgonio" class="section level2">
+<h2><span class="header-section-number">7.4</span> monitorgonio</h2>
+<p>This is a quick hack to display Goniometer output in a user friendly display using <code>shiny</code>. The Goniometer’s screen is tiny, but as mentioned above the hyperterminal mode when connected to a laptop outputs all data to a simple text log file. The shiny app just eavesdrops on this log and uses a key file you load in (csv) to match PTT (hex codes) and display only your platforms of interest. In addition, the program displays the bearing visually on a compass face (circle) and in a table, which is easier to read than the stock software.</p>
+<div class="figure"><span id="fig:monitorgonio-inaction"></span>
+<img src="images/inaction.gif" alt="Monitorgonio display tab showing simulated behavior in the field." width="90%" />
+<p class="caption">
+Figure 7.3: Monitorgonio display tab showing simulated behavior in the field.
+</p>
+</div>
+<div id="quick-guide" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Quick guide</h3>
+<p>I’ve actually managed to get this in a package. It isn’t on cran yet though so you’ll have to use <code>devtools</code> to install from github. The dependencies are <code>shiny</code>, <code>shinyFiles</code>, and <code>plotrix</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;williamcioffi/monitorgonio&quot;</span>)</code></pre>
+<p>You can run monitorgonio from an interactive r session:</p>
+<pre class="sourceCode r"><code class="sourceCode r">monitorgonio<span class="op">::</span><span class="kw">run_monitorgonio</span>()</code></pre>
+<p>Or you can automatically generate monitorgonio.bat which will run the shiny app for you. I hope with the right paths. Be careful for some reason on windows ‘~’ is interpreted as documents or the onedrive…</p>
+<pre class="sourceCode r"><code class="sourceCode r">monitorgonio<span class="op">::</span><span class="kw">make_bat_file</span>(<span class="st">&quot;monitorgonio.bat&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:monitorgonio-loaddata"></span>
+<img src="images/loaddata.png" alt="Monitorgonio's data loading screen and instructions." width="90%" />
+<p class="caption">
+Figure 7.4: Monitorgonio’s data loading screen and instructions.
+</p>
+</div>
+<p>You’ll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. You can get an example template which comes as a dataframe in the package and save it for editing in your favorite editor.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a template pttkey comes with the package</span>
+<span class="kw">data</span>(pttkey, <span class="dt">package =</span> <span class="st">&quot;monitorgonio&quot;</span>)
+pttkey</code></pre>
+<pre><code>##   PTT     HEX DEPLOYID
+## 1     0A1FBF2    test1
+## 2     D7914E1    test2</code></pre>
+<p>You can also construct one easily in R and save it as a csv.</p>
+<pre class="sourceCode r"><code class="sourceCode r">pttkey &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">PTT =</span> <span class="kw">c</span>(<span class="st">&quot;111111&quot;</span>, <span class="st">&quot;222222&quot;</span>),
+    <span class="dt">HEX =</span> <span class="kw">c</span>(<span class="st">&quot;0A1FB2&quot;</span>, <span class="st">&quot;D7914E1&quot;</span>), 
+    <span class="dt">DEPLOYID =</span> <span class="kw">c</span>(<span class="st">&quot;test1&quot;</span>, <span class="st">&quot;test2&quot;</span>)
+)
+
+<span class="co"># save to file</span>
+<span class="kw">write.table</span>(pttkey, <span class="dt">file =</span> <span class="st">&quot;pttkey.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</code></pre>
+<p>Note: you don’t really need the PTT column which is for the decimal PTT, unless you just want to keep track of it on the screen. What the Goniometer actually receives is the hex.</p>
+</div>
+<div id="testing" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Testing</h3>
+<p>You can test monitorgonio a bit even if you don’t have a Goniometer connected or a platform handy. To do this you’ll need two instances of R open. Either start monitor gonio with the .bat script, or start it with <code>run_monitorgonio()</code> and then open a new instance of R.</p>
+<p>In this new instance of R first you’ll need to save the pttkey from above. Save it anywhere you like just remember the path. Next we’ll need a simulated log file. We’ll use a function in a moment to append to the log file as if hits were coming in one by one on the Goniometer, but for now you can just create an empty file:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&quot;&quot;</span>, <span class="dt">file =</span> <span class="st">&quot;testlog&quot;</span>)</code></pre>
+<p>Now make sure monitorgonio is running and go to the shiny window and select both the log file and the pttkey using the buttons and navigating to where you saved them.</p>
+<p>Finally, run the test with:</p>
+<pre class="sourceCode r"><code class="sourceCode r">monitorgonio<span class="op">::</span><span class="kw">simulate_gonio</span>(<span class="st">&quot;testlog&quot;</span>)</code></pre>
+<p>…and you should see hits appearing in the monitorgonio shiny window.</p>
+</div>
+<div id="one-word-of-caution-about-ptts-and-csvs" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> One word of caution about ptts and csvs</h3>
+<p>If you are opening these csv files in excel and if your hex has an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into <span class="math inline">\(12345 \cdot 10^2\)</span> by excel. This is quite annoying and will happen every time you open the file. It’ll look something like this:</p>
+<div class="figure"><span id="fig:excel-badhex"></span>
+<img src="images/badhex.png" alt="The perils of excel and hex." width="90%" />
+<p class="caption">
+Figure 7.5: The perils of excel and hex.
+</p>
+</div>
+<p>The best solution is don’t use excel because it is a terrible csv editor. But many folks are most comfortable with editing csvs in excel so in the past I’ve added a notes column that starts with text so the real hex can be recovered if someone accidentally edits it in excel and saves the result.</p>
+<div class="figure"><span id="fig:excel-savedhex"></span>
+<img src="images/savedhex.png" alt="Put a notes column and copy and paste hexes back in that might get ruined by excel." width="90%" />
+<p class="caption">
+Figure 7.6: Put a notes column and copy and paste hexes back in that might get ruined by excel.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="16">
+<li id="fn16"><p>Woods Hole Group technical staff suggests function should be unaffected<a href="goniometer.html#fnref16" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sattagutils.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="failures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

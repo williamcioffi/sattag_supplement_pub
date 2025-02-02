@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3 MK10 Host | sattag_supplement</title>
+  <meta name="description" content="a supplement to the official Wildlife Computers documentation for use at DUML">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3 MK10 Host | sattag_supplement" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://wrc14.pages.oit.duke.edu/sattag_supplement/" />
+  
+  <meta property="og:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
+  <meta name="github-repo" content="williamcioffi/sattag_supplement" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 MK10 Host | sattag_supplement" />
+  
+  <meta name="twitter:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
+  
+
+<meta name="author" content="wrc">
+
+
+<meta name="date" content="2019-11-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="the-tags.html">
+<link rel="next" href="datastreams.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">sattag_supplement</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="todo.html"><a href="todo.html"><i class="fa fa-check"></i><b>1</b> TODO</a></li>
+<li class="chapter" data-level="2" data-path="the-tags.html"><a href="the-tags.html"><i class="fa fa-check"></i><b>2</b> The Tags</a><ul>
+<li class="chapter" data-level="2.1" data-path="the-tags.html"><a href="the-tags.html#spot"><i class="fa fa-check"></i><b>2.1</b> Spot</a></li>
+<li class="chapter" data-level="2.2" data-path="the-tags.html"><a href="the-tags.html#splash10"><i class="fa fa-check"></i><b>2.2</b> SPLASH10</a></li>
+<li class="chapter" data-level="2.3" data-path="the-tags.html"><a href="the-tags.html#fastloc-splash10-f"><i class="fa fa-check"></i><b>2.3</b> Fastloc (SPLASH10-F)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mk10-host.html"><a href="mk10-host.html"><i class="fa fa-check"></i><b>3</b> MK10 Host</a><ul>
+<li class="chapter" data-level="3.1" data-path="mk10-host.html"><a href="mk10-host.html#recording-settings"><i class="fa fa-check"></i><b>3.1</b> Recording Settings</a></li>
+<li class="chapter" data-level="3.2" data-path="mk10-host.html"><a href="mk10-host.html#detailed-settings-descriptions-and-comments"><i class="fa fa-check"></i><b>3.2</b> Detailed settings descriptions and comments</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mk10-host.html"><a href="mk10-host.html#hostsettings"><i class="fa fa-check"></i><b>3.2.1</b> Host Settings</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mk10-host.html"><a href="mk10-host.html#time-and-date-settings"><i class="fa fa-check"></i><b>3.2.2</b> Time and Date Settings</a></li>
+<li class="chapter" data-level="3.2.3" data-path="mk10-host.html"><a href="mk10-host.html#general-settings"><i class="fa fa-check"></i><b>3.2.3</b> General Settings</a></li>
+<li class="chapter" data-level="3.2.4" data-path="mk10-host.html"><a href="mk10-host.html#data-to-archive-settings"><i class="fa fa-check"></i><b>3.2.4</b> Data to Archive Settings</a></li>
+<li class="chapter" data-level="3.2.5" data-path="mk10-host.html"><a href="mk10-host.html#data-to-transmit-settings"><i class="fa fa-check"></i><b>3.2.5</b> Data to Transmit Settings</a></li>
+<li class="chapter" data-level="3.2.6" data-path="mk10-host.html"><a href="mk10-host.html#histogram-collection"><i class="fa fa-check"></i><b>3.2.6</b> Histogram Collection</a></li>
+<li class="chapter" data-level="3.2.7" data-path="mk10-host.html"><a href="mk10-host.html#time-series-messages"><i class="fa fa-check"></i><b>3.2.7</b> Time series messages</a></li>
+<li class="chapter" data-level="3.2.8" data-path="mk10-host.html"><a href="mk10-host.html#dive-and-timeline-definition"><i class="fa fa-check"></i><b>3.2.8</b> Dive and Timeline Definition</a></li>
+<li class="chapter" data-level="3.2.9" data-path="mk10-host.html"><a href="mk10-host.html#behavior-messages"><i class="fa fa-check"></i><b>3.2.9</b> Behavior Messages</a></li>
+<li class="chapter" data-level="3.2.10" data-path="mk10-host.html"><a href="mk10-host.html#stomach-temperature-messages"><i class="fa fa-check"></i><b>3.2.10</b> Stomach Temperature Messages</a></li>
+<li class="chapter" data-level="3.2.11" data-path="mk10-host.html"><a href="mk10-host.html#haulout-defintion"><i class="fa fa-check"></i><b>3.2.11</b> Haulout Defintion</a></li>
+<li class="chapter" data-level="3.2.12" data-path="mk10-host.html"><a href="mk10-host.html#buffer"><i class="fa fa-check"></i><b>3.2.12</b> Transmission Control</a></li>
+<li class="chapter" data-level="3.2.13" data-path="mk10-host.html"><a href="mk10-host.html#collect-days"><i class="fa fa-check"></i><b>3.2.13</b> Collection days</a></li>
+<li class="chapter" data-level="3.2.14" data-path="mk10-host.html"><a href="mk10-host.html#relative-transmit-priorities"><i class="fa fa-check"></i><b>3.2.14</b> Relative transmit Priorities</a></li>
+<li class="chapter" data-level="3.2.15" data-path="mk10-host.html"><a href="mk10-host.html#transmit-days"><i class="fa fa-check"></i><b>3.2.15</b> When to Transmit Settings</a></li>
+<li class="chapter" data-level="3.2.16" data-path="mk10-host.html"><a href="mk10-host.html#transmit-days-1"><i class="fa fa-check"></i><b>3.2.16</b> Transmit Days</a></li>
+<li class="chapter" data-level="3.2.17" data-path="mk10-host.html"><a href="mk10-host.html#transmit-budget"><i class="fa fa-check"></i><b>3.2.17</b> Daily Transmit Allowance</a></li>
+<li class="chapter" data-level="3.2.18" data-path="mk10-host.html"><a href="mk10-host.html#channel-settings"><i class="fa fa-check"></i><b>3.2.18</b> Channel Settings</a></li>
+<li class="chapter" data-level="3.2.19" data-path="mk10-host.html"><a href="mk10-host.html#depth"><i class="fa fa-check"></i><b>3.2.19</b> Depth</a></li>
+<li class="chapter" data-level="3.2.20" data-path="mk10-host.html"><a href="mk10-host.html#internal-temperature"><i class="fa fa-check"></i><b>3.2.20</b> Internal Temperature</a></li>
+<li class="chapter" data-level="3.2.21" data-path="mk10-host.html"><a href="mk10-host.html#external-temperature"><i class="fa fa-check"></i><b>3.2.21</b> External Temperature</a></li>
+<li class="chapter" data-level="3.2.22" data-path="mk10-host.html"><a href="mk10-host.html#depth-sensor-temperature"><i class="fa fa-check"></i><b>3.2.22</b> Depth Sensor Temperature</a></li>
+<li class="chapter" data-level="3.2.23" data-path="mk10-host.html"><a href="mk10-host.html#battery-voltage"><i class="fa fa-check"></i><b>3.2.23</b> Battery Voltage</a></li>
+<li class="chapter" data-level="3.2.24" data-path="mk10-host.html"><a href="mk10-host.html#wetdry"><i class="fa fa-check"></i><b>3.2.24</b> Wet/Dry</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datastreams.html"><a href="datastreams.html"><i class="fa fa-check"></i><b>4</b> Data streams</a><ul>
+<li class="chapter" data-level="4.1" data-path="datastreams.html"><a href="datastreams.html#date-formats"><i class="fa fa-check"></i><b>4.1</b> Date formats</a></li>
+<li class="chapter" data-level="4.2" data-path="datastreams.html"><a href="datastreams.html#malformed"><i class="fa fa-check"></i><b>4.2</b> Malformed</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="datastreams.html"><a href="datastreams.html#rawargos.csv"><i class="fa fa-check"></i><b>4.2.1</b> *-RawArgos.csv</a></li>
+<li class="chapter" data-level="4.2.2" data-path="datastreams.html"><a href="datastreams.html#fastgps.csv"><i class="fa fa-check"></i><b>4.2.2</b> *-FastGPS.csv</a></li>
+<li class="chapter" data-level="4.2.3" data-path="datastreams.html"><a href="datastreams.html#labels.csv"><i class="fa fa-check"></i><b>4.2.3</b> *-Labels.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="datastreams.html"><a href="datastreams.html#field-details"><i class="fa fa-check"></i><b>4.3</b> Field details</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datastreams.html"><a href="datastreams.html#behavior.csv"><i class="fa fa-check"></i><b>4.3.1</b> *-Behavior.csv</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datastreams.html"><a href="datastreams.html#series.csv"><i class="fa fa-check"></i><b>4.3.2</b> *-Series.csv</a></li>
+<li class="chapter" data-level="4.3.3" data-path="datastreams.html"><a href="datastreams.html#status.csv"><i class="fa fa-check"></i><b>4.3.3</b> *-Status.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datastreams.html"><a href="datastreams.html#fastlocstreams"><i class="fa fa-check"></i><b>4.4</b> Fastloc streams on the portal</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="settings-regimes.html"><a href="settings-regimes.html"><i class="fa fa-check"></i><b>5</b> Settings regimes</a><ul>
+<li class="chapter" data-level="5.1" data-path="settings-regimes.html"><a href="settings-regimes.html#behaviortags"><i class="fa fa-check"></i><b>5.1</b> BRS style behavior</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="settings-regimes.html"><a href="settings-regimes.html#key-settings"><i class="fa fa-check"></i><b>5.1.1</b> Key settings</a></li>
+<li class="chapter" data-level="5.1.2" data-path="settings-regimes.html"><a href="settings-regimes.html#benefits"><i class="fa fa-check"></i><b>5.1.2</b> Benefits</a></li>
+<li class="chapter" data-level="5.1.3" data-path="settings-regimes.html"><a href="settings-regimes.html#costs-and-risks"><i class="fa fa-check"></i><b>5.1.3</b> Costs and risks</a></li>
+<li class="chapter" data-level="5.1.4" data-path="settings-regimes.html"><a href="settings-regimes.html#beh-dep-res"><i class="fa fa-check"></i><b>5.1.4</b> Behavior data depth resolution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="settings-regimes.html"><a href="settings-regimes.html#seriestags"><i class="fa fa-check"></i><b>5.2</b> BRS style series only tags</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="settings-regimes.html"><a href="settings-regimes.html#benefits-1"><i class="fa fa-check"></i><b>5.2.1</b> Benefits</a></li>
+<li class="chapter" data-level="5.2.2" data-path="settings-regimes.html"><a href="settings-regimes.html#costs-and-risks-1"><i class="fa fa-check"></i><b>5.2.2</b> Costs and Risks</a></li>
+<li class="chapter" data-level="5.2.3" data-path="settings-regimes.html"><a href="settings-regimes.html#settings-decisions"><i class="fa fa-check"></i><b>5.2.3</b> Settings decisions</a></li>
+<li class="chapter" data-level="5.2.4" data-path="settings-regimes.html"><a href="settings-regimes.html#series-data-depth-resolution"><i class="fa fa-check"></i><b>5.2.4</b> Series data depth resolution</a></li>
+<li class="chapter" data-level="5.2.5" data-path="settings-regimes.html"><a href="settings-regimes.html#in-the-field-performance"><i class="fa fa-check"></i><b>5.2.5</b> In the field performance</a></li>
+<li class="chapter" data-level="5.2.6" data-path="settings-regimes.html"><a href="settings-regimes.html#future-directions"><i class="fa fa-check"></i><b>5.2.6</b> Future directions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="settings-regimes.html"><a href="settings-regimes.html#brs-fastloc-tags"><i class="fa fa-check"></i><b>5.3</b> BRS fastloc tags</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="settings-regimes.html"><a href="settings-regimes.html#brs3-fastloc-tags"><i class="fa fa-check"></i><b>5.3.1</b> BRS3 fastloc tags</a></li>
+<li class="chapter" data-level="5.3.2" data-path="settings-regimes.html"><a href="settings-regimes.html#brs4-fastloc-tags"><i class="fa fa-check"></i><b>5.3.2</b> BRS4 fastloc tags</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sattagutils.html"><a href="sattagutils.html"><i class="fa fa-check"></i><b>6</b> Sattagutils</a><ul>
+<li class="chapter" data-level="6.1" data-path="sattagutils.html"><a href="sattagutils.html#central-concepts"><i class="fa fa-check"></i><b>6.1</b> Central concepts</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="sattagutils.html"><a href="sattagutils.html#s4"><i class="fa fa-check"></i><b>6.1.1</b> S4</a></li>
+<li class="chapter" data-level="6.1.2" data-path="sattagutils.html"><a href="sattagutils.html#es4dataframe"><i class="fa fa-check"></i><b>6.1.2</b> es4dataframe</a></li>
+<li class="chapter" data-level="6.1.3" data-path="sattagutils.html"><a href="sattagutils.html#sattagstream"><i class="fa fa-check"></i><b>6.1.3</b> sattagstream</a></li>
+<li class="chapter" data-level="6.1.4" data-path="sattagutils.html"><a href="sattagutils.html#sattag-and-tagstack"><i class="fa fa-check"></i><b>6.1.4</b> sattag and tagstack</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="sattagutils.html"><a href="sattagutils.html#sattagutils-quickguide"><i class="fa fa-check"></i><b>6.2</b> Quick guide</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="goniometer.html"><a href="goniometer.html"><i class="fa fa-check"></i><b>7</b> Goniometer</a><ul>
+<li class="chapter" data-level="7.1" data-path="goniometer.html"><a href="goniometer.html#good-goniometers-and-bad-goniometers"><i class="fa fa-check"></i><b>7.1</b> Good goniometers and bad goniometers</a></li>
+<li class="chapter" data-level="7.2" data-path="goniometer.html"><a href="goniometer.html#how-to-test-a-receiver"><i class="fa fa-check"></i><b>7.2</b> How to test a receiver</a></li>
+<li class="chapter" data-level="7.3" data-path="goniometer.html"><a href="goniometer.html#decoding-goniometer-received-messages"><i class="fa fa-check"></i><b>7.3</b> Decoding Goniometer received messages</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="goniometer.html"><a href="goniometer.html#locations-and-fastgps"><i class="fa fa-check"></i><b>7.3.1</b> Locations and FastGPS</a></li>
+<li class="chapter" data-level="7.3.2" data-path="goniometer.html"><a href="goniometer.html#reintegrating-goniometer-downloaded-messages"><i class="fa fa-check"></i><b>7.3.2</b> Reintegrating Goniometer downloaded messages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="goniometer.html"><a href="goniometer.html#monitorgonio"><i class="fa fa-check"></i><b>7.4</b> monitorgonio</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="goniometer.html"><a href="goniometer.html#quick-guide"><i class="fa fa-check"></i><b>7.4.1</b> Quick guide</a></li>
+<li class="chapter" data-level="7.4.2" data-path="goniometer.html"><a href="goniometer.html#testing"><i class="fa fa-check"></i><b>7.4.2</b> Testing</a></li>
+<li class="chapter" data-level="7.4.3" data-path="goniometer.html"><a href="goniometer.html#one-word-of-caution-about-ptts-and-csvs"><i class="fa fa-check"></i><b>7.4.3</b> One word of caution about ptts and csvs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="failures.html"><a href="failures.html"><i class="fa fa-check"></i><b>8</b> Failure modes</a><ul>
+<li class="chapter" data-level="8.1" data-path="failures.html"><a href="failures.html#uncontrolled-pressure-transducer-drift"><i class="fa fa-check"></i><b>8.1</b> Uncontrolled pressure transducer drift</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="failures.html"><a href="failures.html#diagnosis"><i class="fa fa-check"></i><b>8.1.1</b> Diagnosis</a></li>
+<li class="chapter" data-level="8.1.2" data-path="failures.html"><a href="failures.html#examples"><i class="fa fa-check"></i><b>8.1.2</b> Examples</a></li>
+<li class="chapter" data-level="8.1.3" data-path="failures.html"><a href="failures.html#remedy"><i class="fa fa-check"></i><b>8.1.3</b> Remedy</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="failures.html"><a href="failures.html#pressure-transducer-drift-with-recovery"><i class="fa fa-check"></i><b>8.2</b> Pressure transducer drift with recovery</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="failures.html"><a href="failures.html#example"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="failures.html"><a href="failures.html#unexpected-resetting"><i class="fa fa-check"></i><b>8.3</b> Unexpected resetting</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="failures.html"><a href="failures.html#diagnosis-1"><i class="fa fa-check"></i><b>8.3.1</b> Diagnosis</a></li>
+<li class="chapter" data-level="8.3.2" data-path="failures.html"><a href="failures.html#examples-1"><i class="fa fa-check"></i><b>8.3.2</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="failures.html"><a href="failures.html#undersample"><i class="fa fa-check"></i><b>8.4</b> Conductivity sensor undersampling</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="failures.html"><a href="failures.html#diagnosis-2"><i class="fa fa-check"></i><b>8.4.1</b> Diagnosis</a></li>
+<li class="chapter" data-level="8.4.2" data-path="failures.html"><a href="failures.html#remedy-1"><i class="fa fa-check"></i><b>8.4.2</b> Remedy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="doppler-positions.html"><a href="doppler-positions.html"><i class="fa fa-check"></i><b>9</b> Doppler Positions</a><ul>
+<li class="chapter" data-level="9.1" data-path="doppler-positions.html"><a href="doppler-positions.html#the-x"><i class="fa fa-check"></i><b>9.1</b> The “X”</a></li>
+<li class="chapter" data-level="9.2" data-path="doppler-positions.html"><a href="doppler-positions.html#error-ellipses"><i class="fa fa-check"></i><b>9.2</b> Error ellipses</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Other resources</a><ul>
+<li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#wildlife-computers-documentation"><i class="fa fa-check"></i><b>10.1</b> Wildlife Computers Documentation</a></li>
+<li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#argos-documentation"><i class="fa fa-check"></i><b>10.2</b> Argos Documentation</a></li>
+<li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#goniometer-documentation"><i class="fa fa-check"></i><b>10.3</b> Goniometer Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="gloss.html"><a href="gloss.html"><i class="fa fa-check"></i><b>11</b> Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org/">made with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">sattag_supplement</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mk10-host" class="section level1">
+<h1><span class="header-section-number">3</span> MK10 Host</h1>
+<div id="recording-settings" class="section level2">
+<h2><span class="header-section-number">3.1</span> Recording Settings</h2>
+<p>It is sometimes nice to have a table of all of the settings for a large number of tags. There is not a great way to do this. I recently asked if Wildlife Computers would be willing to share the specifications on the wch file format so that I could read in the settings automatically. They were not willing to share this. Without a specification, it would be very time consuming to parse the wch files.</p>
+<p>Instead there is an option in MK10 Host to output an html file which is called a settings report (usually actually with an htm extension). This file is a massive html table with most of the settings and is somewhat easier to parse.</p>
+<div class="figure"><span id="fig:settings-report"></span>
+<img src="images/settings_report.png" alt="Partial example of an html settings report for a SPLASH10 tag" width="90%" />
+<p class="caption">
+Figure 3.1: Partial example of an html settings report for a SPLASH10 tag
+</p>
+</div>
+<p>I’ve written a bit of code to try to parse these automatically and put it in the <code>sattagutils</code> package (§ <a href="sattagutils.html#sattagutils">6</a>). The relevant function is <code>sattagutils::wch_html2df(dir, file)</code>. It takes as parameters a directory path of htm files or a single htm file to convert to a <code>data.frame</code> which it returns. I try to do the minimum processing at this step, though I change commas to semicolons and otherwise remove characters that would be illegal in an R <code>data.frame</code>. The result can be further processed and saved.</p>
+<pre class="sourceCode r"><code class="sourceCode r">config_df &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">wch_html2df</span>(<span class="st">&quot;examples/configs&quot;</span>)
+<span class="kw">dim</span>(config_df)</code></pre>
+<pre><code>## [1]   2 133</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># take a peak at some fields</span>
+knitr<span class="op">::</span><span class="kw">kable</span>(config_df[, <span class="kw">c</span>(
+  <span class="st">&#39;wch_filename&#39;</span>,
+  <span class="st">&#39;Tags_Serial_Number&#39;</span>,
+  <span class="st">&#39;PTT&#39;</span>,
+  <span class="st">&#39;Ignore_dives_shallower_than&#39;</span>,
+  <span class="st">&#39;Ignore_dives_shorter_than&#39;</span>
+)], <span class="dt">booktabs =</span> <span class="ot">TRUE</span>)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">wch_filename</th>
+<th align="left">Tags_Serial_Number</th>
+<th align="left">PTT</th>
+<th align="left">Ignore_dives_shallower_than</th>
+<th align="left">Ignore_dives_shorter_than</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Example1-53643-15A1024.htm</td>
+<td align="left">15A1024</td>
+<td align="left">53643</td>
+<td align="left">50m</td>
+<td align="left">33m</td>
+</tr>
+<tr class="even">
+<td align="left">Example2-174749-17A0528.htm</td>
+<td align="left">17A0528</td>
+<td align="left">174749</td>
+<td align="left">75m</td>
+<td align="left">30s</td>
+</tr>
+</tbody>
+</table>
+<p>There are some irregularities in the html configuration files including some typos. When these are fixed the <code>wch_html2df</code> function will break. In addition, some settings change their label when turned on or off or disappear completely to be replaced by other options.</p>
+<p>One note about generating the settings files in general: They can be generated both from a real tag plugged into MK10 Host, but also after the fact from wch files. Importantly, when generated from wch files, they do not retain the calibration information on the various sensors.</p>
+<div class="figure"><span id="fig:settings-report-channels"></span>
+<img src="images/channel_settings.png" alt="An example of the sensor calibration section of an html settings report generated from a wch file as opposed to from a real tag." width="90%" />
+<p class="caption">
+Figure 3.2: An example of the sensor calibration section of an html settings report generated from a wch file as opposed to from a real tag.
+</p>
+</div>
+<p>If an html report is not made from the physical tag for deployment as far as I know these data are lost (as in the image above). It is possible that Wildlife Computers keeps records of the calibrations and could send them upon request for particular tag serial numbers, but I do not know.</p>
+</div>
+<div id="detailed-settings-descriptions-and-comments" class="section level2">
+<h2><span class="header-section-number">3.2</span> Detailed settings descriptions and comments</h2>
+<div id="hostsettings" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Host Settings</h3>
+<dl>
+<dt>MK10Host version</dt>
+<dd>This is the windows software that connects to and programs the tag.
+</dd>
+<dt>User Name</dt>
+<dd>This is the username of the person who generated the configuration report. This might be the person who programmed the tags or might also be generated after the fact by someone else from the wch file.
+</dd>
+</dl>
+</div>
+<div id="time-and-date-settings" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Time and Date Settings</h3>
+<dl>
+<dt>PC Date UTC</dt>
+<dd>Date and time of report generation.
+</dd>
+<dt>Tag Date</dt>
+<dd>Date and time on tags clock.
+</dd>
+<dt>PC UTC offset</dt>
+<dd>Time difference from PC local time to UTC.
+</dd>
+</dl>
+</div>
+<div id="general-settings" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> General Settings</h3>
+<dl>
+<dt>Tag’s Serial Number</dt>
+<dd>This is a identifier of the tag. Not to be confused with the PTT.
+</dd>
+<dt>Password</dt>
+<dd>Mostly this is MK10, occasionally something else. If you can’t figure it out for a tag check with the programmer (usually you can figure out who that is from the <a href="mk10-host.html#hostsettings"><strong>username</strong></a>).
+</dd>
+<dt>User’s Identifier</dt>
+<dd>This is a user inputted name for the tag. E.g., “Zc” would be a tag set up to be deployed on a <em>Ziphius cavirostris</em>. This will not be the DeployID because it is set before tags are deployed and the DeployID isn’t necessarily known beforehand.
+</dd>
+<dt>Argos Ptt number</dt>
+<dd>PTT is the Argos platform terminal transmitter (See Argos user manual section 4.1). In our case this is embedded in a tag.
+</dd>
+<dd><p>The first decimal number is how CLS identifies the tag on their web portal. The second hexadecimal number in parenthesis is what the transmitter actually squawks. This is, for instance, exclusively the number we get from the goniometer (§ <a href="goniometer.html#goniometer">7</a>). These two numbers could be related in some predictable way to each other, but if they are I can’t tell…</p>
+</dd>
+<dd><p>LUT stands for the local user terminal. LUTs download data from satellites and are how we get anything back at all from Argos.</p>
+</dd>
+<dt>Repetition Intervals</dt>
+<dd>This is set to 15s (at-sea) for all tags. This is the interval at which the tag will send another Argos message when dry.
+</dd>
+<dt>Number of Argos transmissions</dt>
+<dd>If the report was generated with a tag actually connected during programming this will be the actual cumulative number of Argos transmissions at that time. This is often in the several hundred range, because wildlife computers will run the tag before delivery and the programmer or others may run the tag for brief periods for the purposes of testing. If the report was generated after the fact from a configuration file and not the actual tag this field will read 0.
+</dd>
+<dt>Tagware version</dt>
+<dd>
+</dd>
+<dt>Hardware version</dt>
+<dd>
+</dd>
+<dt>Battery Configuration</dt>
+<dd>A description of the number and type of batteries. This depends on the tag. For example, 2 x M3.
+</dd>
+<dt>Battery Capacity</dt>
+<dd>For example, 1500mAh.
+</dd>
+<dt>Battery is not classified as dangerous goods</dt>
+<dd>This is shipping / export info.
+</dd>
+<dt>Deploy from Standby on Depth Change</dt>
+<dd>This is set to ‘no’ on our tags.
+</dd>
+<dt>Owner</dt>
+<dd>It looks like this is usually the wildlife computers address for some reason.
+</dd>
+<dt>Bytes of archive data collected</dt>
+<dd>As above, if the real tag is connected this will read how much data has been stored to the onboard memory. If the report is generated form a configuration file this will read 0.
+</dd>
+<dt>Bytes of histogram and profile data collected</dt>
+<dd>As above, if the real tag is connected this will read how much data has been stored to the onboard memory. If the report is generated form a configuration file this will read 0.
+</dd>
+</dl>
+</div>
+<div id="data-to-archive-settings" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Data to Archive Settings</h3>
+<p>NOTE: these settings are tricky. Most of them should not matter since we never recover the archive. Status messages pull data directly from the sensors, so should not be dependent on any of these sampling periods. However, Wildlife Computers technical staff has indicated that these settings are used by the tag to determine how to sample for some of our data streams. In particular Depth and wet/dry appear to be important. Apparently there is a hack to get a faster wakeup to the tag by decreasing the sampling period for wet/dry but we have not tested this.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<dl>
+<dt>Depth</dt>
+<dd>
+</dd>
+<dt>Internal Temperature</dt>
+<dd>
+</dd>
+<dt>External Temperature</dt>
+<dd>
+</dd>
+<dt>Depth Sensor Temperature</dt>
+<dd>
+</dd>
+<dt>Battery Voltage</dt>
+<dd>
+</dd>
+<dt>Wet/Dry</dt>
+<dd>
+</dd>
+<dt>Wet/Dry Threshold</dt>
+<dd>Most tags are set to Dry if &gt; 150. The conductivity sensor reports 8 bit resolution. This is an empirical value determined by Cascadia and perhaps others to be effective. Wildlife Computers has an dynamic threshold algorithm, but early tests by Cascadia and others found it to be unsatisfactory. It is possible that algorithm may have been updated to function better now, but since this threshold appears to be working adequately we have not changed it.
+</dd>
+<dt>Sampling Mode</dt>
+<dd>Set to wet or dry.
+</dd>
+<dt>Automatic Correction of Depth Transducer Drift</dt>
+<dd>Set to Using first dry reading on most of our tags. The other option is by most common shallow depth; this is for sharks. This means the pressure transducer is read when the tag becomes dry and can apply a correction if this reading is not 0. Wildlife Computers technical staff indicated that this correction is only applied 1 meter at a time (on 2000m tags) and the correction will only be applied to +/- 40m.
+</dd>
+</dl>
+</div>
+<div id="data-to-transmit-settings" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Data to Transmit Settings</h3>
+<dl>
+<dt>Histogram Selection</dt>
+<dd>All of the histograms have been disabled for the latest BRS tags. Our goal is to get continuous dive record either through the behavior summary data or the series data and so any histogram of dives are not useful. They serve as a reduced representation of the dive record in the case where you wouldn’t expect to get continuous records. The dive histograms can of course be calculated from our behavior records. Since we have not been thinking about or using any kind of temperature data we have also left this off.
+</dd>
+<dt>Histogram Data sampling interval</dt>
+<dd>
+</dd>
+<dt>Dive Maximum Depth (m)</dt>
+<dd>
+</dd>
+<dt>Dive Duration</dt>
+<dd>
+</dd>
+<dt>Time-at-Temperature (C)</dt>
+<dd>
+</dd>
+<dt>Time-at-Depth (m)</dt>
+<dd>
+</dd>
+<dt>20-min time-line</dt>
+<dd>
+</dd>
+<dt>Hourly % time-line (low resolution)</dt>
+<dd>
+</dd>
+<dt>Hourly % time-line (high resolution)</dt>
+<dd>
+</dd>
+<dt>Dry/Deep/Neither time-lines</dt>
+<dd>
+</dd>
+<dt>PAT-style depth-temperature profiles</dt>
+<dd>
+</dd>
+<dt>Deepest-depth-temperature profiles</dt>
+<dd>
+</dd>
+<dt>Light-level locations</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="histogram-collection" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Histogram Collection</h3>
+<dl>
+<dt>Hours of data summarized in each histogram</dt>
+<dd>
+</dd>
+<dt>Histograms start at GMT</dt>
+<dd>
+</dd>
+<dt>Do not create new Histogram-style messages if a tag is continuously dry throughout a Histogram collection period</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="time-series-messages" class="section level3">
+<h3><span class="header-section-number">3.2.7</span> Time series messages</h3>
+<dl>
+<dt>Generation of time-series messages</dt>
+<dd>
+</dd>
+<dt>Time interval between TS samples</dt>
+<dd>We selected 5 minute period for our test tags. This was based on average <em>Z. cavirostris</em> dive times for shallow and deep dives while minimizing the number of messages per day. Each time series message contains 48 points, so a higher sampling frequency will result in more messages generated per day. The options are 1.25, 2.5, 5, 7.5, and 10 minute sampling periods. Generating 24, 12, 6, 4, and 3 messages per day respectively. See § <a href="settings-regimes.html#seriestags">5.2</a> for details.
+</dd>
+<dt>Channels sampled</dt>
+<dd>We have set this to just depth for the BRS test series <em>Z. cavirostris</em> tags. Can also sample temperature. That would double the amount of data transmitted.
+</dd>
+<dt>Start with</dt>
+<dd>This is an initial number of days to collect time-series data for. We’ve set this to 14 days for the BRS test series tag configuration. This way it doesn’t matter when the tag turns on from that point onward it’ll record for 14 days and then duty cycle.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+</dd>
+<dt>then Duty Cycle with</dt>
+<dd>We’ve set this to 0 days off.
+</dd>
+<dt>and</dt>
+<dd>We’ve set this to 0 days on.
+</dd>
+</dl>
+</div>
+<div id="dive-and-timeline-definition" class="section level3">
+<h3><span class="header-section-number">3.2.8</span> Dive and Timeline Definition</h3>
+<p>These settings determine what qualifies as a dive.</p>
+<dl>
+<dt>Depth reading to determine start and end of dive</dt>
+<dd>We have been typically setting this to wet or dry. There is a risk that if the conductivity sensor is low or fouled or the weather is high that surfacings will be undersampled. See § <a href="failures.html#undersample">8.4</a> for a more detailed discussion of this issue. While this determines what is a candidate dives it must also pass the following tresholds to be saved as a dive and put in the buffer for transmit.
+</dd>
+<dt>Ignore dives shallower than</dt>
+<dd>We’ve set this to be 50 meters for <em>Z. cavirostris</em> and 75 meters for <em>G. macrorhynchus</em>. The maximum is 75 meters.
+</dd>
+<dt>Ignore dives shorter than</dt>
+<dd>We’ve set this to be 33 minutes for <em>Z. cavirostris</em> and 30 seconds for <em>G macrorhynchus</em>. (see § <a href="settings-regimes.html#behaviortags">5.1</a> for details)
+</dd>
+<dt>Depth threshold for timelies</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="behavior-messages" class="section level3">
+<h3><span class="header-section-number">3.2.9</span> Behavior Messages</h3>
+<dl>
+<dt>Generation of behavior messages</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="stomach-temperature-messages" class="section level3">
+<h3><span class="header-section-number">3.2.10</span> Stomach Temperature Messages</h3>
+<dl>
+<dt>Generation of stomach temperature messages</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="haulout-defintion" class="section level3">
+<h3><span class="header-section-number">3.2.11</span> Haulout Defintion</h3>
+<p>There is only one field under this heading and the label changes depending on what is set. For cetaceans, you generally do not set this and so it’ll read <strong>Tag will never enter haulout state</strong>.</p>
+</div>
+<div id="buffer" class="section level3">
+<h3><span class="header-section-number">3.2.12</span> Transmission Control</h3>
+<dl>
+<dt>Transmit data collected over these last days</dt>
+<dd>This is what we call the <a href="gloss.html#gloss">buffer</a>. This seems simple but it is tricky. The Argos platforms transmit only, they have no idea if a satellite receives anything. In fact they don’t even know if a message is corrupted or not (for example, by water splashing the antenna and interrupting a transmission). The tag only knows whether or not a transmit was attempted. Therefore, the buffer allows some storage of messages so they can be transmitted several times over the course of a few days to increase the likelihood that they will get through the satellite.
+</dd>
+<dd><p>If the buffer is too short, then messages will be deleted before they have an opportunity to be transmitted successfully. If we have about 9% satellite coverage off the coast of North Carolina, then a message should have to be sent about 10 times for 1 to go through.</p>
+</dd>
+<dd><p>If the buffer is too long, our probability of new messages being successfully transmitted goes down. In this example, in the beginning of the deployment the queue will be short because the tag hasn’t been attached long enough to generate enough messages. So given a constant number of opportunities (the animal brings the tag to the surface) there will be more attempts per message. As the deployment goes on the message queue will get longer and longer and there will be fewer and fewer attempts for each message, especially impacting the latest messages which entered the queue when there were already a lot of messages.</p>
+</dd>
+<dd><p>So the key considerations are: data volume (settings dependent), satellite coverage (location dependent), and transmit opportunities (species and settings dependent). Other crucial settings are the transmit budget (§ <a href="mk10-host.html#transmit-budget">3.2.17</a>), transmit duty cycle (§ <a href="mk10-host.html#transmit-days">3.2.15</a>) and collection duty cycle (§ <a href="mk10-host.html#collect-days">3.2.13</a>)</p>
+</dd>
+<dd><p>Cascadia’s experience has been that for deep diving cetaceans a <strong>2 day</strong> buffer works well for collecting behavior data and tends to baa lance the above concerns. For our series tag configurations (see § <a href="settings-regimes.html#seriestags">5.2</a>), we used a <strong>100 day</strong> buffer, the maximum, because we were most concerned with successfully receiving all records and adjusted other settings to increase this probability.</p>
+</dd>
+</dl>
+</div>
+<div id="collect-days" class="section level3">
+<h3><span class="header-section-number">3.2.13</span> Collection days</h3>
+<dl>
+<dt>January - December</dt>
+<dd>Which days to collect data on. For BRS, we have set these to all of the days. This is a way to duty cycle the tag off for specific days.
+</dd>
+</dl>
+</div>
+<div id="relative-transmit-priorities" class="section level3">
+<h3><span class="header-section-number">3.2.14</span> Relative transmit Priorities</h3>
+<dl>
+<dt>Histogram, Profiles, Time-lines, Stomach Temperature</dt>
+<dd>
+</dd>
+<dt>Fastloc and Light-level Locations</dt>
+<dd>
+</dd>
+<dt>Behavior and Time-Series</dt>
+<dd>
+</dd>
+<dt>Status</dt>
+<dd>Set to every 20 transmissions. I don’t think this can be changed?
+</dd>
+</dl>
+</div>
+<div id="transmit-days" class="section level3">
+<h3><span class="header-section-number">3.2.15</span> When to Transmit Settings</h3>
+<dl>
+<dt>Initially transmit for these hours regardless of settings below</dt>
+<dd>We’ve set this to 24. This comes from Cascadia. I assume the reason is to aid in determining if the tag is working properly and the deployment is OK.
+</dd>
+<dt>Transmit hours</dt>
+<dd>This is based on an analysis of a satellite availability conducted by the tagger. For BRS, we have increased transmit hours to times when there is very poor or no satellite coverage but there is a possibility we will be offshore. We can use the goniometer (§ <a href="goniometer.html#goniometer">7</a>) to track animals as well as capture transmitted messages.
+</dd>
+</dl>
+</div>
+<div id="transmit-days-1" class="section level3">
+<h3><span class="header-section-number">3.2.16</span> Transmit Days</h3>
+<dl>
+<dt>January - December</dt>
+<dd>Same as above for collection, but for transmission.
+</dd>
+</dl>
+</div>
+<div id="transmit-budget" class="section level3">
+<h3><span class="header-section-number">3.2.17</span> Daily Transmit Allowance</h3>
+<dl>
+<dt>January - December</dt>
+<dd>Can only give one number per month which will apply to every day in that month. We’ve been using <strong>700-750</strong> for <em>G. macrorhynchus</em> and <strong>470</strong> for <em>Z. cavirostris</em>. In both cases we’ve set to <strong>not accumulate</strong> and <strong>not optimize for battery life</strong>. These numbers have been tested as effective by Cascadia.
+</dd>
+<dd><p>Some things to consider for transmission number include animal activity patterns, satellite coverage, and battery life. Transmissions use battery, so setting this number very high could lead to early battery drain. In the case of <em>Z. cavirostris</em> this is unlikely since they spend little time at the surface they generally do not hit the 470 transmit limit. <em>G. macrorhynchus</em> however can spend hours logging at the surface and may go through their entire transmit budget relatively quickly. Making this number smaller helps avoid the situation where the animals are spending a lot of battery life but not sending very informative data (not moving quickly or diving very much). The drawback to making this number small is that it may be used up before good satellite windows during the day.</p>
+</dd>
+</dl>
+</div>
+<div id="channel-settings" class="section level3">
+<h3><span class="header-section-number">3.2.18</span> Channel Settings</h3>
+<p>These settings pertain to the sensors and their calibrations.</p>
+</div>
+<div id="depth" class="section level3">
+<h3><span class="header-section-number">3.2.19</span> Depth</h3>
+<p>This field also indicates if the tag is extended depth or not by looking in the value of the field under <strong>Range</strong> and <strong>Resolution</strong>.</p>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+<dt>Compensation factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="internal-temperature" class="section level3">
+<h3><span class="header-section-number">3.2.20</span> Internal Temperature</h3>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="external-temperature" class="section level3">
+<h3><span class="header-section-number">3.2.21</span> External Temperature</h3>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="depth-sensor-temperature" class="section level3">
+<h3><span class="header-section-number">3.2.22</span> Depth Sensor Temperature</h3>
+<dl>
+<dt>Correction factors</dt>
+<dd>
+</dd>
+<dt>Errors</dt>
+<dd>
+</dd>
+</dl>
+</div>
+<div id="battery-voltage" class="section level3">
+<h3><span class="header-section-number">3.2.23</span> Battery Voltage</h3>
+</div>
+<div id="wetdry" class="section level3">
+<h3><span class="header-section-number">3.2.24</span> Wet/Dry</h3>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>SPLASH10 tags have a 1/2 second wake up time, while SPOT6 have a 1/4 second wake up. By increasing the sampling rate, we can hack the SPLASH10 to have a 1/4 second wake up at the cost of power. Is this because it is actually logging at that higher sampling rate? I’m not sure.<a href="mk10-host.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>It doesn’t seem to ever be exactly 14 days, I don’t know how it counts…<a href="mk10-host.html#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-tags.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datastreams.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
