@@ -27,7 +27,7 @@ Fig. \@ref(fig:dep-deprange) sort of makes sense. The resolution becomes coarser
 
 
 
-```r
+``` r
 extags <- sattagutils::batch_load_tags("examples/tags")
 beh <- sattagutils::getstream(extags, "behavior", squash = TRUE)
 dives <- beh[beh$What == 'Dive', ]
@@ -50,7 +50,7 @@ plot(dep, deprange,
 We can also graph this as percent of max depth which might make more sense. You can see in Fig. \@ref(fig:dep-deprange-percent) it looks like the depth bins (resolution) were designed to keep the error somewhere between 1-3% of max depth. That's OK that makes sense.
 
 
-```r
+``` r
 plot(dep, (deprange/dep)*100,
   xlab = "Max Depth (meters)",
   ylab = "Depth Range (% of Max Depth)",
@@ -100,7 +100,7 @@ Since there is an interaction between animal behavior and satellite availability
 As mentioned above, we choose a 5 minute sampling period as a trade off between aliasing shorter dives and generating more messages than could reasonable be uplinked. We can take a look at the same dive profile at different sampling period from some of the baselines tags which we sampled at 2.5 minutes. Above 5 minute sampling periods aliasing becomes quite apparent (Fig. \@ref(fig:ser-alias)).
 
 
-```r
+``` r
 # this function is currently missing from sattagutils (issue #12)
 source("helper_functions/findgaps.R")
 s2_5 <- sattagutils::getstream(extags[[1]], "series", squash = TRUE)
@@ -146,7 +146,7 @@ We can use the same tags as above (§ \@ref(beh-dep-res)) to take a peak at the 
 You can see in Fig. \@ref(fig:ser-dep-res) that the bin widths are substantially greater than for the behavior data. The odd fan pattern is actually created by the somewhat dynamic assignment of bins (based on min and max in a given message of 48 samples) and is explained further below.
 
 
-```r
+``` r
 ser <- sattagutils::getstream(extags, "series", squash = TRUE)
 
 plot(ser$Depth, ser$DRange*2,
@@ -164,7 +164,7 @@ plot(ser$Depth, ser$DRange*2,
 When we look at percentages (Fig. \@ref(fig:ser-dep-res-percentage)), some are extremely high. Though, note that the very high percentages are all occurring at shallow depths. When the depth range is greater than 100% the mean depth is just 13 meters. Fig. \@ref(fig:ser-dep-res-percentage-zoom) shows a zoom for depths of 250 meters and above. The mean depth range is still 21% of reported depth here ^[Some preliminary analysis of tags which were simultaneously collecting both behavior and series data suggests that on average the series data actually performs better than these theoretical ranges when maximum depths are compared between series dive profiles and behavior dive events.].
 
 
-```r
+``` r
 plot(ser$Depth, (ser$DRange*2 / ser$Depth) * 100,
   xlab = "Depth (meters)",
   ylab = "Depth Range (% of Depth)",
@@ -178,7 +178,7 @@ plot(ser$Depth, (ser$DRange*2 / ser$Depth) * 100,
 </div>
 
 
-```r
+``` r
 plot(ser$Depth[ser$Depth >= 250], ((ser$DRange*2 / ser$Depth) * 100)[ser$Depth >= 250],
   xlab = "Depth (meters)",
   ylab = "Depth Range (% of Depth)",
@@ -194,7 +194,7 @@ plot(ser$Depth[ser$Depth >= 250], ((ser$DRange*2 / ser$Depth) * 100)[ser$Depth >
 To understand how the 16 bins are set it is neccessary to look at one message at a time. Here I'll just take the first full^[Series messages are actually scheduled based on real time depending on the sampling period. That is at 5.0 minute period, messages always end at 00, 04, 08, 16, and 20hrs. Therefore, whenever the tag is deployed it typically sends a shorter first message, before ending on schedule and then being aligned with 48 sample messages from that point forward.] message of one our example tags. You can see below that there is still a sort of step function similar to what we saw in the behavior data in the bin widths but it is more complex here as there is some variation within each 'step' \@ref(fig:ser-dep-res-one-mesage)).
 
 
-```r
+``` r
 t1 <- extags[[1]]
 ser <- sattagutils::getstream(t1, "series", squash = TRUE)
 msg <- sattagutils::getstream(t1, "seriesrange", squash = TRUE)
@@ -217,7 +217,7 @@ plot(ser_msg1$Depth, ser_msg1$DRange*2,
 I'll plot 10 messages together color coded by message on the same graph to see how the overall pattern is created in bin width and depth (Fig. \@ref(fig:ser-error-ten-msg)).
 
 
-```r
+``` r
 cols <- rep(1:10, each = 48)
 
 ser_10msg <- ser2[1:length(cols), ]
@@ -239,7 +239,7 @@ It might be useful to plot these depth errors on a depth profile (Fig. \@ref(fig
 It is worth noting that the series data in general appears to underestimate maximum depth on deep dives when compared to the behavior data stream. I believe this is because short forays (less than the sampling period) can be missed on the series data, but the max depth on the behavior data stream is actually logged from a 1 second (on our tags) sampling period, even though only one value and a range are retained per dive.
 
 
-```r
+``` r
 sattagutils::plot_series(s5,
   ylim = c(-1100, 0), las = 1, xaxt = 'n', xlab = "", ylab = "depth (meters)"
 )
@@ -253,7 +253,7 @@ segments(s5$Date, -s5$Depth - s5$DRange, s5$Date, -s5$Depth + s5$DRange, col = "
 </div>
 
 
-```r
+``` r
 # this function is still being migrated into sattagutils
 source("helper_functions/plot_dives.R")
 b1 <- sattagutils::getstream(extags[[1]], "behavior", squash = TRUE)
@@ -326,30 +326,30 @@ What follows are just some very cursory notes on the fastloc tags (SPLASH10-F) u
 
 Table: (\#tab:brs3-fastloc-beh-perf)Behavior data stream gap summary statistics. Gma = *Globicephala macrorhynchus*
 
-              species   data record length (days)   number of data gaps   mean gap length (days)   summed gap length (days   proportion of data record gapped 
-------------  --------  --------------------------  --------------------  -----------------------  ------------------------  ---------------------------------
-exgpstag3_1   Gma       19                          20                    0.57                     79                        0.17                             
-exgpstag3_2   Gma       11                          17                    3.33                     140                       0.52                             
-exgpstag3_3   Gma       24                          39                    2.30                     274                       0.47                             
+|            |species |data record length (days) |number of data gaps |mean gap length (days) |summed gap length (days |proportion of data record gapped |
+|:-----------|:-------|:-------------------------|:-------------------|:----------------------|:-----------------------|:--------------------------------|
+|exgpstag3_1 |Gma     |19                        |20                  |0.57                   |79                      |0.17                             |
+|exgpstag3_2 |Gma     |11                        |17                  |3.33                   |140                     |0.52                             |
+|exgpstag3_3 |Gma     |24                        |39                  |2.30                   |274                     |0.47                             |
 
 
 Table: (\#tab:brs3-fastloc-loc-perf)Location summary statistics including proportion of locations in each of the location quality classes. Gma = *Globicephala macrorhynchus*, lq = location quality.
 
-              species   n days   lq = Z   lq = A   lq = B   lq = 0   lq = 1   lq = 2   lq = 3   total locations   locations per day 
-------------  --------  -------  -------  -------  -------  -------  -------  -------  -------  ----------------  ------------------
-exgpstag3_1   Gma       19       0.026    0.043    0.10     0.28     0.31     0.17     0.074    231               12                
-exgpstag3_2   Gma       11       0.025    0.089    0.12     0.20     0.25     0.22     0.089    158               14                
-exgpstag3_3   Gma       24       0.052    0.052    0.12     0.22     0.28     0.20     0.079    290               12                
+|            |species |n days |lq = Z |lq = A |lq = B |lq = 0 |lq = 1 |lq = 2 |lq = 3 |total locations |locations per day |
+|:-----------|:-------|:------|:------|:------|:------|:------|:------|:------|:------|:---------------|:-----------------|
+|exgpstag3_1 |Gma     |19     |0.026  |0.043  |0.10   |0.28   |0.31   |0.17   |0.074  |231             |12                |
+|exgpstag3_2 |Gma     |11     |0.025  |0.089  |0.12   |0.20   |0.25   |0.22   |0.089  |158             |14                |
+|exgpstag3_3 |Gma     |24     |0.052  |0.052  |0.12   |0.22   |0.28   |0.20   |0.079  |290             |12                |
 
 
 
 Table: (\#tab:brs3-fastloc-fastgps-perf)Fastloc summary statistics. Gma = *Globicephala macrorhynchus*
 
-              species   n days   n fastlocs   n fastlocs per day   mean number of sats tracked   mean time btwn fastlocs (hours) 
-------------  --------  -------  -----------  -------------------  ----------------------------  --------------------------------
-exgpstag3_1   Gma       19       443          23                   4.6                           1.03                            
-exgpstag3_2   Gma       11       273          24                   5.2                           0.99                            
-exgpstag3_3   Gma       24       287          12                   4.4                           2.14                            
+|            |species |n days |n fastlocs |n fastlocs per day |mean number of sats tracked |mean time btwn fastlocs (hours) |
+|:-----------|:-------|:------|:----------|:------------------|:---------------------------|:-------------------------------|
+|exgpstag3_1 |Gma     |19     |443        |23                 |4.6                         |1.03                            |
+|exgpstag3_2 |Gma     |11     |273        |24                 |5.2                         |0.99                            |
+|exgpstag3_3 |Gma     |24     |287        |12                 |4.4                         |2.14                            |
 
 ### BRS4 fastloc tags
 
@@ -362,16 +362,16 @@ exgpstag3_3   Gma       24       287          12                   4.4          
 
 Table: (\#tab:brs4-fastloc-loc-perf)Location summary statistics including proportion of locations in each of the location quality classes. Gma = *Globicephala macrorhynchus*, Zca = *Ziphius cavirostris*, lq = location quality.
 
-              species   n days   lq = Z   lq = A   lq = B   lq = 0   lq = 1   lq = 2   lq = 3   total locations   locations per day 
-------------  --------  -------  -------  -------  -------  -------  -------  -------  -------  ----------------  ------------------
-exgpstag4_1   Gma       21       0.029    0.098    0.13     0.27     0.253    0.159    0.069    245               11                
-exgpstag4_2   Zca       24       0.242    0.206    0.12     0.24     0.055    0.018    0.115    165               7                 
+|            |species |n days |lq = Z |lq = A |lq = B |lq = 0 |lq = 1 |lq = 2 |lq = 3 |total locations |locations per day |
+|:-----------|:-------|:------|:------|:------|:------|:------|:------|:------|:------|:---------------|:-----------------|
+|exgpstag4_1 |Gma     |21     |0.029  |0.098  |0.13   |0.27   |0.253  |0.159  |0.069  |245             |11                |
+|exgpstag4_2 |Zca     |24     |0.242  |0.206  |0.12   |0.24   |0.055  |0.018  |0.115  |165             |7                 |
 
 
 Table: (\#tab:brs4-fastloc-fastgps-perf)Fastloc summary statistics. Gma = *Globicephala macrorhynchus*
 
-              species   n days   n fastlocs   n fastlocs per day   mean number of sats tracked   mean time btwn fastlocs (hours) 
-------------  --------  -------  -----------  -------------------  ----------------------------  --------------------------------
-exgpstag4_1   Gma       21       333          15.5                 4.7                           1.4                             
-exgpstag4_2   Zca       24       182          7.7                  5.0                           3.1                             
+|            |species |n days |n fastlocs |n fastlocs per day |mean number of sats tracked |mean time btwn fastlocs (hours) |
+|:-----------|:-------|:------|:----------|:------------------|:---------------------------|:-------------------------------|
+|exgpstag4_1 |Gma     |21     |333        |15.5               |4.7                         |1.4                             |
+|exgpstag4_2 |Zca     |24     |182        |7.7                |5.0                         |3.1                             |
 

@@ -29,6 +29,24 @@ The simplest test of a reciever is to a turn on a tag briefly. This is best done
 
 A better test is with the antenna rigged onto the boat to walk around the boat the with a test tag transmitting to confirm signal strength and directionality. Again, you should be able to get the signal strength to 0 with this method. We've also tried leaving the test tag tansmitting on the dock and taking the small boat with a rigged antenna farther and farther away to do a simple range test. This can be tricky, because there are a lot of obstructions and interference near to shore. A better test could be performed at sea with two boats. It is also helpful to informally cross reference wich tags are being received between boats when there are multiple boats rigged with goniometers in the same general area tracking animals.
 
+## Incorrect dates in the goniometer log
+
+The goniometer will occasionally produce incorrect dates. It seems like this can occur sometimes when the battery of the receiver is run down very low. This has happened to me especially when there are long periods between field efforts. My best guess is that for some reason the date gets set incorrectly prior to GPS connection in some circumstances.
+
+I've found the following procedure can fix this problem:
+
+1. Back up current data just in case there is useful information or the date can
+be repaired.
+
+1. Make sure the unit is well charged and has a good GPS connection.
+
+1. Clear the memory and reset the unit.
+
+1. Turn everything back on and let the unit get a good GPS connection.
+
+1. Turn on a test tag to make sure date, time, and data all look good.
+
+1. If problem persists try repeating the process.
 
 ## Decoding Goniometer received messages
 
@@ -49,7 +67,7 @@ The $NPRF indicates that a platform has been favorited, but the log will also di
 You can use `parsegonio()` to create a simulated prv file that DAP processor can read:
 
 
-```r
+``` r
 gfile <- "gonio_ex_log.txt"
 pttkey_file <- "pttkey.csv"
 
@@ -113,21 +131,21 @@ This is a quick hack to display Goniometer output in a user friendly display usi
 I've actually managed to get this in a package. It isn't on cran yet though so you'll have to use `devtools` to install from github. The dependencies are `shiny`, `shinyFiles`, and `plotrix`.
 
 
-```r
+``` r
 devtools::install_github("williamcioffi/monitorgonio")
 ```
 
 You can run monitorgonio from an interactive r session:
 
 
-```r
+``` r
 monitorgonio::run_monitorgonio()
 ```
 
 Or you can automatically generate monitorgonio.bat which will run the shiny app for you. I hope with the right paths. Be careful for some reason on windows '~' is interpreted as documents or the onedrive... 
 
 
-```r
+``` r
 monitorgonio::make_bat_file("monitorgonio.bat")
 ```
 
@@ -139,7 +157,7 @@ monitorgonio::make_bat_file("monitorgonio.bat")
 You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. You can get an example template which comes as a dataframe in the package and save it for editing in your favorite editor.
 
 
-```r
+``` r
 # a template pttkey comes with the package
 data(pttkey, package = "monitorgonio")
 pttkey
@@ -153,7 +171,7 @@ pttkey
 You can also construct one easily in R and save it as a csv.
 
 
-```r
+``` r
 pttkey <- data.frame(
 	PTT = c("111111", "222222"),
  	HEX = c("0A1FB2", "D7914E1"), 
@@ -172,7 +190,7 @@ You can test monitorgonio a bit even if you don't have a Goniometer connected or
 In this new instance of R first you'll need to save the pttkey from above. Save it anywhere you like just remember the path. Next we'll need a simulated log file. We'll use a function in a moment to append to the log file as if hits were coming in one by one on the Goniometer, but for now you can just create an empty file:
 
 
-```r
+``` r
 cat("", file = "testlog")
 ```
 
@@ -181,7 +199,7 @@ Now make sure monitorgonio is running and go to the shiny window and select both
 Finally, run the test with: 
 
 
-```r
+``` r
 monitorgonio::simulate_gonio("testlog")
 ```
 

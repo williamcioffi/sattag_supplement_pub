@@ -19,7 +19,7 @@ In the end I settled on S4 classes to represent tag and data objects. I know som
 All of the various sattag data streams inherit `es4dataframe`:
 
 
-```r
+``` r
 setClass("es4dataframe",
   contains = "data.frame"
 )
@@ -28,7 +28,7 @@ setClass("es4dataframe",
 and a constructor:
 
 
-```r
+``` r
 es4dataframe <- function(..., stringsAsFactors = FALSE) {
   data <- data.frame(..., stringsAsFactors = stringsAsFactors)
   new("es4dataframe", data)
@@ -40,7 +40,7 @@ I implemented only the most basic functionality that I needed including `as.data
 Most are fairly simple and just pass the buck to the underlying `data.frame`. For example:
 
 
-```r
+``` r
 setMethod("[<-", "es4dataframe", function(x, i, j, ..., value) {
   dfin <- as.data.frame(x)
   dfout <- getS3method("[<-", "data.frame")(dfin, i, j, ..., value)
@@ -72,7 +72,7 @@ Everything has nice show methods so you don't blow up your console peeking at ta
 Install:
 
 
-```r
+``` r
 devtools::install_github("williamcioffi/sattagutils")
 ```
 
@@ -83,7 +83,7 @@ Now we can load a couple of tags into a tagstack and take a peek.
 
 
 
-```r
+``` r
 extags <- sattagutils::batch_load_tags("examples/tags/")
 extags
 ```
@@ -91,13 +91,13 @@ extags
 ```
 ## tagstack of 2 tags
 ## -----
-## 102465 - ExampleTag001 - 14 streams
-## 77246 - ExampleTag002 - 14 streams
+## 01 - 102465 - ExampleTag001 - 14 streams
+## 02 - 77246 - ExampleTag002 - 14 streams
 ```
 So we've loaded 2 tags and we can see they both have 14 streams that were imported. We can look inside as if this was any other kind of list. Though, for many analyses we'd probably just want to start pulling out streams of interest from all the tags at this point.
 
 
-```r
+``` r
 tag1 <- extags[[1]]
 tag1
 ```
@@ -111,28 +111,28 @@ tag1
 ## end data date: 2014-07-12
 ## ------
 ## streams: 
-## 01- 102465-All.csv
-## 02- 102465-Argos.csv
-## 03- 102465-Behavior.csv
-## 04- 102465-Corrupt.csv
-## 05- 102465-Histos.csv
-## 06- 102465-Labels.csv
-## 07- 102465-Locations.csv
-## 08- 102465-MinMaxDepth.csv
-## 09- 102465-RawArgos.csv
-## 10- 102465-RTC.csv
-## 11- 102465-Series.csv
-## 12- 102465-SeriesRange.csv
-## 13- 102465-Status.csv
-## 14- 102465-Summary.csv
+## 01 - 102465-All.csv
+## 02 - 102465-Argos.csv
+## 03 - 102465-Behavior.csv
+## 04 - 102465-Corrupt.csv
+## 05 - 102465-Histos.csv
+## 06 - 102465-Labels.csv
+## 07 - 102465-Locations.csv
+## 08 - 102465-MinMaxDepth.csv
+## 09 - 102465-RawArgos.csv
+## 10 - 102465-RTC.csv
+## 11 - 102465-Series.csv
+## 12 - 102465-SeriesRange.csv
+## 13 - 102465-Status.csv
+## 14 - 102465-Summary.csv
 ## ------
 ## loaded from: examples/tags//102465
-## loaded on: 2019-11-06 09:25:35
+## loaded on: 2025-02-18 22:09:42.114038
 ```
 Here you can see a listing of all the streams in a particular tag, and we can take a closer look at the behavior table.
 
 
-```r
+``` r
 beh <- tag1[[3]]
 beh[, c('What', 'Start', 'End', 'DepthMax')]
 ```

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Settings regimes | sattag_supplement</title>
-  <meta name="description" content="a supplement to the official Wildlife Computers documentation for use at DUML">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Settings regimes | sattag_supplement" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://wrc14.pages.oit.duke.edu/sattag_supplement/" />
   
   <meta property="og:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
   <meta name="github-repo" content="williamcioffi/sattag_supplement" />
@@ -22,25 +20,27 @@
   <meta name="twitter:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
   
 
-<meta name="author" content="wrc">
+<meta name="author" content="wrc" />
 
 
-<meta name="date" content="2019-11-06">
+<meta name="date" content="2025-02-18" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="datastreams.html">
-<link rel="next" href="sattagutils.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="datastreams.html"/>
+<link rel="next" href="sattagutils.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,39 +48,43 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -89,15 +93,15 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -110,7 +114,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -122,6 +126,34 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -142,14 +174,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="todo.html"><a href="todo.html"><i class="fa fa-check"></i><b>1</b> TODO</a></li>
-<li class="chapter" data-level="2" data-path="the-tags.html"><a href="the-tags.html"><i class="fa fa-check"></i><b>2</b> The Tags</a><ul>
+<li class="chapter" data-level="2" data-path="the-tags.html"><a href="the-tags.html"><i class="fa fa-check"></i><b>2</b> The Tags</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="the-tags.html"><a href="the-tags.html#spot"><i class="fa fa-check"></i><b>2.1</b> Spot</a></li>
 <li class="chapter" data-level="2.2" data-path="the-tags.html"><a href="the-tags.html#splash10"><i class="fa fa-check"></i><b>2.2</b> SPLASH10</a></li>
 <li class="chapter" data-level="2.3" data-path="the-tags.html"><a href="the-tags.html#fastloc-splash10-f"><i class="fa fa-check"></i><b>2.3</b> Fastloc (SPLASH10-F)</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="mk10-host.html"><a href="mk10-host.html"><i class="fa fa-check"></i><b>3</b> MK10 Host</a><ul>
+<li class="chapter" data-level="3" data-path="mk10-host.html"><a href="mk10-host.html"><i class="fa fa-check"></i><b>3</b> MK10 Host</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="mk10-host.html"><a href="mk10-host.html#recording-settings"><i class="fa fa-check"></i><b>3.1</b> Recording Settings</a></li>
-<li class="chapter" data-level="3.2" data-path="mk10-host.html"><a href="mk10-host.html#detailed-settings-descriptions-and-comments"><i class="fa fa-check"></i><b>3.2</b> Detailed settings descriptions and comments</a><ul>
+<li class="chapter" data-level="3.2" data-path="mk10-host.html"><a href="mk10-host.html#detailed-settings-descriptions-and-comments"><i class="fa fa-check"></i><b>3.2</b> Detailed settings descriptions and comments</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="mk10-host.html"><a href="mk10-host.html#hostsettings"><i class="fa fa-check"></i><b>3.2.1</b> Host Settings</a></li>
 <li class="chapter" data-level="3.2.2" data-path="mk10-host.html"><a href="mk10-host.html#time-and-date-settings"><i class="fa fa-check"></i><b>3.2.2</b> Time and Date Settings</a></li>
 <li class="chapter" data-level="3.2.3" data-path="mk10-host.html"><a href="mk10-host.html#general-settings"><i class="fa fa-check"></i><b>3.2.3</b> General Settings</a></li>
@@ -176,28 +211,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.24" data-path="mk10-host.html"><a href="mk10-host.html#wetdry"><i class="fa fa-check"></i><b>3.2.24</b> Wet/Dry</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="datastreams.html"><a href="datastreams.html"><i class="fa fa-check"></i><b>4</b> Data streams</a><ul>
+<li class="chapter" data-level="4" data-path="datastreams.html"><a href="datastreams.html"><i class="fa fa-check"></i><b>4</b> Data streams</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="datastreams.html"><a href="datastreams.html#date-formats"><i class="fa fa-check"></i><b>4.1</b> Date formats</a></li>
-<li class="chapter" data-level="4.2" data-path="datastreams.html"><a href="datastreams.html#malformed"><i class="fa fa-check"></i><b>4.2</b> Malformed</a><ul>
+<li class="chapter" data-level="4.2" data-path="datastreams.html"><a href="datastreams.html#malformed"><i class="fa fa-check"></i><b>4.2</b> Malformed</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="datastreams.html"><a href="datastreams.html#rawargos.csv"><i class="fa fa-check"></i><b>4.2.1</b> *-RawArgos.csv</a></li>
 <li class="chapter" data-level="4.2.2" data-path="datastreams.html"><a href="datastreams.html#fastgps.csv"><i class="fa fa-check"></i><b>4.2.2</b> *-FastGPS.csv</a></li>
 <li class="chapter" data-level="4.2.3" data-path="datastreams.html"><a href="datastreams.html#labels.csv"><i class="fa fa-check"></i><b>4.2.3</b> *-Labels.csv</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="datastreams.html"><a href="datastreams.html#field-details"><i class="fa fa-check"></i><b>4.3</b> Field details</a><ul>
+<li class="chapter" data-level="4.3" data-path="datastreams.html"><a href="datastreams.html#field-details"><i class="fa fa-check"></i><b>4.3</b> Field details</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="datastreams.html"><a href="datastreams.html#behavior.csv"><i class="fa fa-check"></i><b>4.3.1</b> *-Behavior.csv</a></li>
 <li class="chapter" data-level="4.3.2" data-path="datastreams.html"><a href="datastreams.html#series.csv"><i class="fa fa-check"></i><b>4.3.2</b> *-Series.csv</a></li>
 <li class="chapter" data-level="4.3.3" data-path="datastreams.html"><a href="datastreams.html#status.csv"><i class="fa fa-check"></i><b>4.3.3</b> *-Status.csv</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="datastreams.html"><a href="datastreams.html#fastlocstreams"><i class="fa fa-check"></i><b>4.4</b> Fastloc streams on the portal</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="settings-regimes.html"><a href="settings-regimes.html"><i class="fa fa-check"></i><b>5</b> Settings regimes</a><ul>
-<li class="chapter" data-level="5.1" data-path="settings-regimes.html"><a href="settings-regimes.html#behaviortags"><i class="fa fa-check"></i><b>5.1</b> BRS style behavior</a><ul>
+<li class="chapter" data-level="5" data-path="settings-regimes.html"><a href="settings-regimes.html"><i class="fa fa-check"></i><b>5</b> Settings regimes</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="settings-regimes.html"><a href="settings-regimes.html#behaviortags"><i class="fa fa-check"></i><b>5.1</b> BRS style behavior</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="settings-regimes.html"><a href="settings-regimes.html#key-settings"><i class="fa fa-check"></i><b>5.1.1</b> Key settings</a></li>
 <li class="chapter" data-level="5.1.2" data-path="settings-regimes.html"><a href="settings-regimes.html#benefits"><i class="fa fa-check"></i><b>5.1.2</b> Benefits</a></li>
 <li class="chapter" data-level="5.1.3" data-path="settings-regimes.html"><a href="settings-regimes.html#costs-and-risks"><i class="fa fa-check"></i><b>5.1.3</b> Costs and risks</a></li>
 <li class="chapter" data-level="5.1.4" data-path="settings-regimes.html"><a href="settings-regimes.html#beh-dep-res"><i class="fa fa-check"></i><b>5.1.4</b> Behavior data depth resolution</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="settings-regimes.html"><a href="settings-regimes.html#seriestags"><i class="fa fa-check"></i><b>5.2</b> BRS style series only tags</a><ul>
+<li class="chapter" data-level="5.2" data-path="settings-regimes.html"><a href="settings-regimes.html#seriestags"><i class="fa fa-check"></i><b>5.2</b> BRS style series only tags</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="settings-regimes.html"><a href="settings-regimes.html#benefits-1"><i class="fa fa-check"></i><b>5.2.1</b> Benefits</a></li>
 <li class="chapter" data-level="5.2.2" data-path="settings-regimes.html"><a href="settings-regimes.html#costs-and-risks-1"><i class="fa fa-check"></i><b>5.2.2</b> Costs and Risks</a></li>
 <li class="chapter" data-level="5.2.3" data-path="settings-regimes.html"><a href="settings-regimes.html#settings-decisions"><i class="fa fa-check"></i><b>5.2.3</b> Settings decisions</a></li>
@@ -205,13 +246,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.5" data-path="settings-regimes.html"><a href="settings-regimes.html#in-the-field-performance"><i class="fa fa-check"></i><b>5.2.5</b> In the field performance</a></li>
 <li class="chapter" data-level="5.2.6" data-path="settings-regimes.html"><a href="settings-regimes.html#future-directions"><i class="fa fa-check"></i><b>5.2.6</b> Future directions</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="settings-regimes.html"><a href="settings-regimes.html#brs-fastloc-tags"><i class="fa fa-check"></i><b>5.3</b> BRS fastloc tags</a><ul>
+<li class="chapter" data-level="5.3" data-path="settings-regimes.html"><a href="settings-regimes.html#brs-fastloc-tags"><i class="fa fa-check"></i><b>5.3</b> BRS fastloc tags</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="settings-regimes.html"><a href="settings-regimes.html#brs3-fastloc-tags"><i class="fa fa-check"></i><b>5.3.1</b> BRS3 fastloc tags</a></li>
 <li class="chapter" data-level="5.3.2" data-path="settings-regimes.html"><a href="settings-regimes.html#brs4-fastloc-tags"><i class="fa fa-check"></i><b>5.3.2</b> BRS4 fastloc tags</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="sattagutils.html"><a href="sattagutils.html"><i class="fa fa-check"></i><b>6</b> Sattagutils</a><ul>
-<li class="chapter" data-level="6.1" data-path="sattagutils.html"><a href="sattagutils.html#central-concepts"><i class="fa fa-check"></i><b>6.1</b> Central concepts</a><ul>
+<li class="chapter" data-level="6" data-path="sattagutils.html"><a href="sattagutils.html"><i class="fa fa-check"></i><b>6</b> Sattagutils</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sattagutils.html"><a href="sattagutils.html#central-concepts"><i class="fa fa-check"></i><b>6.1</b> Central concepts</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="sattagutils.html"><a href="sattagutils.html#s4"><i class="fa fa-check"></i><b>6.1.1</b> S4</a></li>
 <li class="chapter" data-level="6.1.2" data-path="sattagutils.html"><a href="sattagutils.html#es4dataframe"><i class="fa fa-check"></i><b>6.1.2</b> es4dataframe</a></li>
 <li class="chapter" data-level="6.1.3" data-path="sattagutils.html"><a href="sattagutils.html#sattagstream"><i class="fa fa-check"></i><b>6.1.3</b> sattagstream</a></li>
@@ -219,42 +263,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="sattagutils.html"><a href="sattagutils.html#sattagutils-quickguide"><i class="fa fa-check"></i><b>6.2</b> Quick guide</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="goniometer.html"><a href="goniometer.html"><i class="fa fa-check"></i><b>7</b> Goniometer</a><ul>
+<li class="chapter" data-level="7" data-path="goniometer.html"><a href="goniometer.html"><i class="fa fa-check"></i><b>7</b> Goniometer</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="goniometer.html"><a href="goniometer.html#good-goniometers-and-bad-goniometers"><i class="fa fa-check"></i><b>7.1</b> Good goniometers and bad goniometers</a></li>
 <li class="chapter" data-level="7.2" data-path="goniometer.html"><a href="goniometer.html#how-to-test-a-receiver"><i class="fa fa-check"></i><b>7.2</b> How to test a receiver</a></li>
-<li class="chapter" data-level="7.3" data-path="goniometer.html"><a href="goniometer.html#decoding-goniometer-received-messages"><i class="fa fa-check"></i><b>7.3</b> Decoding Goniometer received messages</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="goniometer.html"><a href="goniometer.html#locations-and-fastgps"><i class="fa fa-check"></i><b>7.3.1</b> Locations and FastGPS</a></li>
-<li class="chapter" data-level="7.3.2" data-path="goniometer.html"><a href="goniometer.html#reintegrating-goniometer-downloaded-messages"><i class="fa fa-check"></i><b>7.3.2</b> Reintegrating Goniometer downloaded messages</a></li>
+<li class="chapter" data-level="7.3" data-path="goniometer.html"><a href="goniometer.html#incorrect-dates-in-the-goniometer-log"><i class="fa fa-check"></i><b>7.3</b> Incorrect dates in the goniometer log</a></li>
+<li class="chapter" data-level="7.4" data-path="goniometer.html"><a href="goniometer.html#decoding-goniometer-received-messages"><i class="fa fa-check"></i><b>7.4</b> Decoding Goniometer received messages</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="goniometer.html"><a href="goniometer.html#locations-and-fastgps"><i class="fa fa-check"></i><b>7.4.1</b> Locations and FastGPS</a></li>
+<li class="chapter" data-level="7.4.2" data-path="goniometer.html"><a href="goniometer.html#reintegrating-goniometer-downloaded-messages"><i class="fa fa-check"></i><b>7.4.2</b> Reintegrating Goniometer downloaded messages</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="goniometer.html"><a href="goniometer.html#monitorgonio"><i class="fa fa-check"></i><b>7.4</b> monitorgonio</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="goniometer.html"><a href="goniometer.html#quick-guide"><i class="fa fa-check"></i><b>7.4.1</b> Quick guide</a></li>
-<li class="chapter" data-level="7.4.2" data-path="goniometer.html"><a href="goniometer.html#testing"><i class="fa fa-check"></i><b>7.4.2</b> Testing</a></li>
-<li class="chapter" data-level="7.4.3" data-path="goniometer.html"><a href="goniometer.html#one-word-of-caution-about-ptts-and-csvs"><i class="fa fa-check"></i><b>7.4.3</b> One word of caution about ptts and csvs</a></li>
+<li class="chapter" data-level="7.5" data-path="goniometer.html"><a href="goniometer.html#monitorgonio"><i class="fa fa-check"></i><b>7.5</b> monitorgonio</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="goniometer.html"><a href="goniometer.html#quick-guide"><i class="fa fa-check"></i><b>7.5.1</b> Quick guide</a></li>
+<li class="chapter" data-level="7.5.2" data-path="goniometer.html"><a href="goniometer.html#testing"><i class="fa fa-check"></i><b>7.5.2</b> Testing</a></li>
+<li class="chapter" data-level="7.5.3" data-path="goniometer.html"><a href="goniometer.html#one-word-of-caution-about-ptts-and-csvs"><i class="fa fa-check"></i><b>7.5.3</b> One word of caution about ptts and csvs</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="failures.html"><a href="failures.html"><i class="fa fa-check"></i><b>8</b> Failure modes</a><ul>
-<li class="chapter" data-level="8.1" data-path="failures.html"><a href="failures.html#uncontrolled-pressure-transducer-drift"><i class="fa fa-check"></i><b>8.1</b> Uncontrolled pressure transducer drift</a><ul>
+<li class="chapter" data-level="8" data-path="failures.html"><a href="failures.html"><i class="fa fa-check"></i><b>8</b> Failure modes</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="failures.html"><a href="failures.html#uncontrolled-pressure-transducer-drift"><i class="fa fa-check"></i><b>8.1</b> Uncontrolled pressure transducer drift</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="failures.html"><a href="failures.html#diagnosis"><i class="fa fa-check"></i><b>8.1.1</b> Diagnosis</a></li>
 <li class="chapter" data-level="8.1.2" data-path="failures.html"><a href="failures.html#examples"><i class="fa fa-check"></i><b>8.1.2</b> Examples</a></li>
 <li class="chapter" data-level="8.1.3" data-path="failures.html"><a href="failures.html#remedy"><i class="fa fa-check"></i><b>8.1.3</b> Remedy</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="failures.html"><a href="failures.html#pressure-transducer-drift-with-recovery"><i class="fa fa-check"></i><b>8.2</b> Pressure transducer drift with recovery</a><ul>
+<li class="chapter" data-level="8.2" data-path="failures.html"><a href="failures.html#pressure-transducer-drift-with-recovery"><i class="fa fa-check"></i><b>8.2</b> Pressure transducer drift with recovery</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="failures.html"><a href="failures.html#example"><i class="fa fa-check"></i><b>8.2.1</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="failures.html"><a href="failures.html#unexpected-resetting"><i class="fa fa-check"></i><b>8.3</b> Unexpected resetting</a><ul>
+<li class="chapter" data-level="8.3" data-path="failures.html"><a href="failures.html#unexpected-resetting"><i class="fa fa-check"></i><b>8.3</b> Unexpected resetting</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="failures.html"><a href="failures.html#diagnosis-1"><i class="fa fa-check"></i><b>8.3.1</b> Diagnosis</a></li>
 <li class="chapter" data-level="8.3.2" data-path="failures.html"><a href="failures.html#examples-1"><i class="fa fa-check"></i><b>8.3.2</b> Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="failures.html"><a href="failures.html#undersample"><i class="fa fa-check"></i><b>8.4</b> Conductivity sensor undersampling</a><ul>
+<li class="chapter" data-level="8.4" data-path="failures.html"><a href="failures.html#undersample"><i class="fa fa-check"></i><b>8.4</b> Conductivity sensor undersampling</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="failures.html"><a href="failures.html#diagnosis-2"><i class="fa fa-check"></i><b>8.4.1</b> Diagnosis</a></li>
 <li class="chapter" data-level="8.4.2" data-path="failures.html"><a href="failures.html#remedy-1"><i class="fa fa-check"></i><b>8.4.2</b> Remedy</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="doppler-positions.html"><a href="doppler-positions.html"><i class="fa fa-check"></i><b>9</b> Doppler Positions</a><ul>
+<li class="chapter" data-level="9" data-path="doppler-positions.html"><a href="doppler-positions.html"><i class="fa fa-check"></i><b>9</b> Doppler Positions</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="doppler-positions.html"><a href="doppler-positions.html#the-x"><i class="fa fa-check"></i><b>9.1</b> The “X”</a></li>
 <li class="chapter" data-level="9.2" data-path="doppler-positions.html"><a href="doppler-positions.html#error-ellipses"><i class="fa fa-check"></i><b>9.2</b> Error ellipses</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Other resources</a><ul>
+<li class="chapter" data-level="10" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>10</b> Other resources</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="resources.html"><a href="resources.html#wildlife-computers-documentation"><i class="fa fa-check"></i><b>10.1</b> Wildlife Computers Documentation</a></li>
 <li class="chapter" data-level="10.2" data-path="resources.html"><a href="resources.html#argos-documentation"><i class="fa fa-check"></i><b>10.2</b> Argos Documentation</a></li>
 <li class="chapter" data-level="10.3" data-path="resources.html"><a href="resources.html#goniometer-documentation"><i class="fa fa-check"></i><b>10.3</b> Goniometer Documentation</a></li>
@@ -281,13 +336,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="settings-regimes" class="section level1">
-<h1><span class="header-section-number">5</span> Settings regimes</h1>
-<div id="behaviortags" class="section level2">
-<h2><span class="header-section-number">5.1</span> BRS style behavior</h2>
+<div id="settings-regimes" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Settings regimes<a href="settings-regimes.html#settings-regimes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="behaviortags" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> BRS style behavior<a href="settings-regimes.html#behaviortags" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="citation">Quick et al. (<a href="#ref-quick2019mind">2019</a>)</span> covers how and why we set the BRS behavior tags for <em>Z. cavirostris</em>. I’ll provide only a very brief summary here. Also I have some chitchat about the depth resolution because it is relevant for comparisons with the series only tags (see § <a href="settings-regimes.html#seriestags">5.2</a>).</p>
-<div id="key-settings" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Key settings</h3>
+<div id="key-settings" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Key settings<a href="settings-regimes.html#key-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>We turned off all data streams we could besides behavior to limit the number of extraneous messages generated per day. Mainly this consisted of getting rid of histograms.</li>
 <li>Start and end of dives was defined by the conductivity sensor.</li>
@@ -295,51 +350,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>For <em>Globicephala macrorhynchus</em>, we set a 30 second, 75 meter dive minimum. This was the maximum dive minimum depth available.</li>
 </ul>
 </div>
-<div id="benefits" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> Benefits</h3>
+<div id="benefits" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Benefits<a href="settings-regimes.html#benefits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>More complete behavior records (it worked really well!)</li>
 <li>Longer continuous stretches of behavior</li>
 </ul>
 </div>
-<div id="costs-and-risks" class="section level3">
-<h3><span class="header-section-number">5.1.3</span> Costs and risks</h3>
+<div id="costs-and-risks" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Costs and risks<a href="settings-regimes.html#costs-and-risks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Battery usage? Hard to tell. I’ll look into this more.</li>
 <li>Reduced dive data resolution (i.e., no shorter duration dives).</li>
 </ul>
 </div>
-<div id="beh-dep-res" class="section level3">
-<h3><span class="header-section-number">5.1.4</span> Behavior data depth resolution</h3>
+<div id="beh-dep-res" class="section level3 hasAnchor" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Behavior data depth resolution<a href="settings-regimes.html#beh-dep-res" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>I’ll use the two example tags to peek at the resolution of max depth on the behavior data stream. These are baseline <em>Z. cavirostris</em> tags so they include a variety of depths (not just dives over 33 minutes in duration). Depth range is really the bin width or resolution due to the encoding of the data and not the accuracy of the pressure transducer. Why did Wildlife Computers put an expensive pressure transducer accurate to 1 meter in the tag but always report coarser resolution? One answer is the higher resolution depths are recorded on the archive on board the tag, we just don’t happen to usually get tags back with cetaceans. The other answer is to save bandwidth when transmitting data.</p>
 <p>Fig. <a href="settings-regimes.html#fig:dep-deprange">5.1</a> sort of makes sense. The resolution becomes coarser as you go deeper and there seems to be a step function at consistent breaks.</p>
-<pre class="sourceCode r"><code class="sourceCode r">extags &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">batch_load_tags</span>(<span class="st">&quot;examples/tags&quot;</span>)
-beh &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">getstream</span>(extags, <span class="st">&quot;behavior&quot;</span>, <span class="dt">squash =</span> <span class="ot">TRUE</span>)
-dives &lt;-<span class="st"> </span>beh[beh<span class="op">$</span>What <span class="op">==</span><span class="st"> &#39;Dive&#39;</span>, ]
-
-dep &lt;-<span class="st"> </span><span class="kw">apply</span>(dives[, <span class="kw">c</span>(<span class="st">&#39;DepthMax&#39;</span>, <span class="st">&#39;DepthMin&#39;</span>)], <span class="dv">1</span>, mean)
-deprange &lt;-<span class="st"> </span>(dives<span class="op">$</span>DepthMax <span class="op">-</span><span class="st"> </span>dives<span class="op">$</span>DepthMin)<span class="op">/</span><span class="dv">2</span>
-
-<span class="kw">plot</span>(dep, deprange,
-  <span class="dt">xlab =</span> <span class="st">&quot;Max Depth (meters)&quot;</span>,
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span>,
-  <span class="dt">las =</span> <span class="dv">1</span>
-)</code></pre>
-<div class="figure"><span id="fig:dep-deprange"></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="settings-regimes.html#cb4-1" tabindex="-1"></a>extags <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">batch_load_tags</span>(<span class="st">&quot;examples/tags&quot;</span>)</span>
+<span id="cb4-2"><a href="settings-regimes.html#cb4-2" tabindex="-1"></a>beh <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">getstream</span>(extags, <span class="st">&quot;behavior&quot;</span>, <span class="at">squash =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="settings-regimes.html#cb4-3" tabindex="-1"></a>dives <span class="ot">&lt;-</span> beh[beh<span class="sc">$</span>What <span class="sc">==</span> <span class="st">&#39;Dive&#39;</span>, ]</span>
+<span id="cb4-4"><a href="settings-regimes.html#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="settings-regimes.html#cb4-5" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">apply</span>(dives[, <span class="fu">c</span>(<span class="st">&#39;DepthMax&#39;</span>, <span class="st">&#39;DepthMin&#39;</span>)], <span class="dv">1</span>, mean)</span>
+<span id="cb4-6"><a href="settings-regimes.html#cb4-6" tabindex="-1"></a>deprange <span class="ot">&lt;-</span> (dives<span class="sc">$</span>DepthMax <span class="sc">-</span> dives<span class="sc">$</span>DepthMin)<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb4-7"><a href="settings-regimes.html#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="settings-regimes.html#cb4-8" tabindex="-1"></a><span class="fu">plot</span>(dep, deprange,</span>
+<span id="cb4-9"><a href="settings-regimes.html#cb4-9" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Max Depth (meters)&quot;</span>,</span>
+<span id="cb4-10"><a href="settings-regimes.html#cb4-10" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span>,</span>
+<span id="cb4-11"><a href="settings-regimes.html#cb4-11" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">1</span></span>
+<span id="cb4-12"><a href="settings-regimes.html#cb4-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:dep-deprange"></span>
 <img src="04-setregimes_files/figure-html/dep-deprange-1.png" alt="Relationship between max depth (behavior data) and bin resolution in meters." width="60%" />
 <p class="caption">
 Figure 5.1: Relationship between max depth (behavior data) and bin resolution in meters.
 </p>
 </div>
 <p>We can also graph this as percent of max depth which might make more sense. You can see in Fig. <a href="settings-regimes.html#fig:dep-deprange-percent">5.2</a> it looks like the depth bins (resolution) were designed to keep the error somewhere between 1-3% of max depth. That’s OK that makes sense.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(dep, (deprange<span class="op">/</span>dep)<span class="op">*</span><span class="dv">100</span>,
-  <span class="dt">xlab =</span> <span class="st">&quot;Max Depth (meters)&quot;</span>,
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth Range (% of Max Depth)&quot;</span>,
-  <span class="dt">las =</span> <span class="dv">1</span>
-)
-
-<span class="kw">abline</span>(<span class="dt">h =</span> <span class="kw">mean</span>(deprange<span class="op">/</span>dep)<span class="op">*</span><span class="dv">100</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</code></pre>
-<div class="figure"><span id="fig:dep-deprange-percent"></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="settings-regimes.html#cb5-1" tabindex="-1"></a><span class="fu">plot</span>(dep, (deprange<span class="sc">/</span>dep)<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb5-2"><a href="settings-regimes.html#cb5-2" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Max Depth (meters)&quot;</span>,</span>
+<span id="cb5-3"><a href="settings-regimes.html#cb5-3" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Depth Range (% of Max Depth)&quot;</span>,</span>
+<span id="cb5-4"><a href="settings-regimes.html#cb5-4" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">1</span></span>
+<span id="cb5-5"><a href="settings-regimes.html#cb5-5" tabindex="-1"></a>)</span>
+<span id="cb5-6"><a href="settings-regimes.html#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="settings-regimes.html#cb5-7" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">mean</span>(deprange<span class="sc">/</span>dep)<span class="sc">*</span><span class="dv">100</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:dep-deprange-percent"></span>
 <img src="04-setregimes_files/figure-html/dep-deprange-percent-1.png" alt="Relationship between max depth and bin resolution expressed as percentage of max depth. Broken line shows mean depth range." width="60%" />
 <p class="caption">
 Figure 5.2: Relationship between max depth and bin resolution expressed as percentage of max depth. Broken line shows mean depth range.
@@ -347,19 +402,19 @@ Figure 5.2: Relationship between max depth and bin resolution expressed as perce
 </div>
 </div>
 </div>
-<div id="seriestags" class="section level2">
-<h2><span class="header-section-number">5.2</span> BRS style series only tags</h2>
+<div id="seriestags" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> BRS style series only tags<a href="settings-regimes.html#seriestags" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The bandwidth limitations of non-recoverable satellite-linked biologging instruments in combination with the behavior of infrequent surfacers such as Ziphiids produce tradeoffs between data record length (longevity), data detail (resolution), and data gaps (completeness).</p>
-<p>The relative importance of these three tradeoffs will depend on the research questions being addressed by biologging data in a particular study and an equal maximization function may not always be desirable. For example, in the baseline data collection off Cape Hatteras, SPLASH10 instruments were programmed to prioritize longevity and data resolution. Specifically, multiple data streams were collected at relatively fine sampling rates, and data collection was duty cycled to increase deployment length, necessarily introducing data gaps. During BRS, to ask if MFAS disrupts deep foraging dives, settings were chosen that prioritized long duration and complete records at the cost of resolution, i.e., shallow dives were not recorded <span class="citation">(Quick et al. <a href="#ref-quick2019mind">2019</a>)</span>.</p>
-<p>While the BRS behavior tags were very successful in producing continuous records, there was a desire for higher resolution on <em>Z. cavirostris</em>. We turned to the series data stream as a possible alternative. Typically, series data had been duty cycled on our baseline tags and turned off for BRS tags to save message bandwidth. In this tag configuration, we turned off behavior data collection and transmission and only collected series data.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
-<div class="figure"><span id="fig:simant"></span>
+<p>The relative importance of these three tradeoffs will depend on the research questions being addressed by biologging data in a particular study and an equal maximization function may not always be desirable. For example, in the baseline data collection off Cape Hatteras, SPLASH10 instruments were programmed to prioritize longevity and data resolution. Specifically, multiple data streams were collected at relatively fine sampling rates, and data collection was duty cycled to increase deployment length, necessarily introducing data gaps. During BRS, to ask if MFAS disrupts deep foraging dives, settings were chosen that prioritized long duration and complete records at the cost of resolution, i.e., shallow dives were not recorded <span class="citation">(<a href="#ref-quick2019mind">Quick et al. 2019</a>)</span>.</p>
+<p>While the BRS behavior tags were very successful in producing continuous records, there was a desire for higher resolution on <em>Z. cavirostris</em>. We turned to the series data stream as a possible alternative. Typically, series data had been duty cycled on our baseline tags and turned off for BRS tags to save message bandwidth. In this tag configuration, we turned off behavior data collection and transmission and only collected series data <a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>.</p>
+<div class="figure"><span style="display:block;" id="fig:simant"></span>
 <img src="images/simant.png" alt="A conceptual diagram showing the trade offs among data record length (longevity), data detail (resolution), and data gaps (completeness) and the strengths and weaknesses of each of three tag setting regimes for *Z. cavirostris*: (a) baseline (pre-BRS) (b) BRS behavior tags which recorded only dives over 33 minutes in length, and (c) the series only tag configuration described here." width="90%" />
 <p class="caption">
 Figure 5.3: A conceptual diagram showing the trade offs among data record length (longevity), data detail (resolution), and data gaps (completeness) and the strengths and weaknesses of each of three tag setting regimes for <em>Z. cavirostris</em>: (a) baseline (pre-BRS) (b) BRS behavior tags which recorded only dives over 33 minutes in length, and (c) the series only tag configuration described here.
 </p>
 </div>
-<div id="benefits-1" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> Benefits</h3>
+<div id="benefits-1" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Benefits<a href="settings-regimes.html#benefits-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>A true time series of depth including shallow dives</li>
 <li>No reliance on conductivity for start and end dive definitions</li>
@@ -367,53 +422,53 @@ Figure 5.3: A conceptual diagram showing the trade offs among data record length
 <li>Pressure transducer failures may be easier to diagnose</li>
 </ul>
 </div>
-<div id="costs-and-risks-1" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Costs and Risks</h3>
+<div id="costs-and-risks-1" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Costs and Risks<a href="settings-regimes.html#costs-and-risks-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Tradeoff between sampling rate and risk for gaps. Higher resolution = more messages generated per day.</li>
 <li>Durations may be less precise than those defined by the conductivity sensor</li>
 <li>16 depth bins based on minimum and maximum dive during each message = slightly different depth resolution from message to message and in general less resolution than behavior data (though note that behavior dive events only provide 1 depth per dive).</li>
 </ul>
 </div>
-<div id="settings-decisions" class="section level3">
-<h3><span class="header-section-number">5.2.3</span> Settings decisions</h3>
+<div id="settings-decisions" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Settings decisions<a href="settings-regimes.html#settings-decisions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Based on the distribution of messages per day we get from behavior tags (see <span class="citation">Quick et al. (<a href="#ref-quick2019mind">2019</a>)</span>), we settled on a series sampling period of 5 minutes. Each message contains 48 points so this period produces 6 messages per day. To limit gaps in the data we activated data collection for 14 days and then continued transmission while ceasing collection. We set a data buffer to 100 days (the maximum) with the hope that all gaps would back fill before the end of the tags life.</p>
 <p>Since there is an interaction between animal behavior and satellite availability these figures are species specific as well as field site specific. We made educated guesses based on the performance of the behavior tags (§ <a href="settings-regimes.html#behaviortags">5.1</a>) to come to these figures<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. Ultimately, due to the large number of variables, a field test was required to assess the series tag performance. Nevertheless, I’ve included a bit of additional chitchat about sampling period below.</p>
-<div id="sampling-period" class="section level4">
-<h4><span class="header-section-number">5.2.3.1</span> Sampling period</h4>
+<div id="sampling-period" class="section level4 hasAnchor" number="5.2.3.1">
+<h4><span class="header-section-number">5.2.3.1</span> Sampling period<a href="settings-regimes.html#sampling-period" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As mentioned above, we choose a 5 minute sampling period as a trade off between aliasing shorter dives and generating more messages than could reasonable be uplinked. We can take a look at the same dive profile at different sampling period from some of the baselines tags which we sampled at 2.5 minutes. Above 5 minute sampling periods aliasing becomes quite apparent (Fig. <a href="settings-regimes.html#fig:ser-alias">5.4</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># this function is currently missing from sattagutils (issue #12)</span>
-<span class="kw">source</span>(<span class="st">&quot;helper_functions/findgaps.R&quot;</span>)
-s2_<span class="dv">5</span> &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">getstream</span>(extags[[<span class="dv">1</span>]], <span class="st">&quot;series&quot;</span>, <span class="dt">squash =</span> <span class="ot">TRUE</span>)
-
-<span class="co"># just look at a couple of messages</span>
-s2_<span class="dv">5</span> &lt;-<span class="st"> </span>s2_<span class="dv">5</span>[<span class="dv">1</span><span class="op">:</span>(<span class="dv">48</span><span class="op">*</span><span class="dv">4</span>), ]
-
-<span class="co"># make downsampled versions for</span>
-<span class="co"># 5 min, 7.5 min, and 10 min sampling periods</span>
-s5   &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">resample_ser</span>(s2_<span class="dv">5</span>, <span class="dv">5</span>)
-s7_<span class="dv">5</span> &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">resample_ser</span>(s2_<span class="dv">5</span>, <span class="fl">7.5</span>)
-s10  &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">resample_ser</span>(s2_<span class="dv">5</span>, <span class="dv">10</span>)
-
-<span class="co"># plot</span>
-<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">4.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))
-sattagutils<span class="op">::</span><span class="kw">plot_series</span>(s2_<span class="dv">5</span>, 
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>
-)
-<span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend =</span> <span class="st">&quot;period = 2.5 min; 12 msg / day&quot;</span>, <span class="dt">bty =</span> <span class="st">&#39;n&#39;</span>)
-sattagutils<span class="op">::</span><span class="kw">plot_series</span>(s5,
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;depth (meters&quot;</span>
-)
-<span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend =</span> <span class="st">&quot;period = 5 min; 6 msg / day&quot;</span>, <span class="dt">bty =</span> <span class="st">&#39;n&#39;</span>)
-sattagutils<span class="op">::</span><span class="kw">plot_series</span>(s7_<span class="dv">5</span>,
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>
-)
-<span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend =</span> <span class="st">&quot;period = 7.5 min; 4 msg / day&quot;</span>, <span class="dt">bty =</span> <span class="st">&#39;n&#39;</span>)
-sattagutils<span class="op">::</span><span class="kw">plot_series</span>(s10,
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>
-)
-<span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend =</span> <span class="st">&quot;period = 10 min; 3 msg / day&quot;</span>, <span class="dt">bty =</span> <span class="st">&#39;n&#39;</span>)</code></pre>
-<div class="figure"><span id="fig:ser-alias"></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="settings-regimes.html#cb6-1" tabindex="-1"></a><span class="co"># this function is currently missing from sattagutils (issue #12)</span></span>
+<span id="cb6-2"><a href="settings-regimes.html#cb6-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;helper_functions/findgaps.R&quot;</span>)</span>
+<span id="cb6-3"><a href="settings-regimes.html#cb6-3" tabindex="-1"></a>s2_5 <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">getstream</span>(extags[[<span class="dv">1</span>]], <span class="st">&quot;series&quot;</span>, <span class="at">squash =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-4"><a href="settings-regimes.html#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="settings-regimes.html#cb6-5" tabindex="-1"></a><span class="co"># just look at a couple of messages</span></span>
+<span id="cb6-6"><a href="settings-regimes.html#cb6-6" tabindex="-1"></a>s2_5 <span class="ot">&lt;-</span> s2_5[<span class="dv">1</span><span class="sc">:</span>(<span class="dv">48</span><span class="sc">*</span><span class="dv">4</span>), ]</span>
+<span id="cb6-7"><a href="settings-regimes.html#cb6-7" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="settings-regimes.html#cb6-8" tabindex="-1"></a><span class="co"># make downsampled versions for</span></span>
+<span id="cb6-9"><a href="settings-regimes.html#cb6-9" tabindex="-1"></a><span class="co"># 5 min, 7.5 min, and 10 min sampling periods</span></span>
+<span id="cb6-10"><a href="settings-regimes.html#cb6-10" tabindex="-1"></a>s5   <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">resample_ser</span>(s2_5, <span class="dv">5</span>)</span>
+<span id="cb6-11"><a href="settings-regimes.html#cb6-11" tabindex="-1"></a>s7_5 <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">resample_ser</span>(s2_5, <span class="fl">7.5</span>)</span>
+<span id="cb6-12"><a href="settings-regimes.html#cb6-12" tabindex="-1"></a>s10  <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">resample_ser</span>(s2_5, <span class="dv">10</span>)</span>
+<span id="cb6-13"><a href="settings-regimes.html#cb6-13" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="settings-regimes.html#cb6-14" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb6-15"><a href="settings-regimes.html#cb6-15" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">4.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>))</span>
+<span id="cb6-16"><a href="settings-regimes.html#cb6-16" tabindex="-1"></a>sattagutils<span class="sc">::</span><span class="fu">plot_series</span>(s2_5, </span>
+<span id="cb6-17"><a href="settings-regimes.html#cb6-17" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb6-18"><a href="settings-regimes.html#cb6-18" tabindex="-1"></a>)</span>
+<span id="cb6-19"><a href="settings-regimes.html#cb6-19" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="st">&quot;period = 2.5 min; 12 msg / day&quot;</span>, <span class="at">bty =</span> <span class="st">&#39;n&#39;</span>)</span>
+<span id="cb6-20"><a href="settings-regimes.html#cb6-20" tabindex="-1"></a>sattagutils<span class="sc">::</span><span class="fu">plot_series</span>(s5,</span>
+<span id="cb6-21"><a href="settings-regimes.html#cb6-21" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;depth (meters&quot;</span></span>
+<span id="cb6-22"><a href="settings-regimes.html#cb6-22" tabindex="-1"></a>)</span>
+<span id="cb6-23"><a href="settings-regimes.html#cb6-23" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="st">&quot;period = 5 min; 6 msg / day&quot;</span>, <span class="at">bty =</span> <span class="st">&#39;n&#39;</span>)</span>
+<span id="cb6-24"><a href="settings-regimes.html#cb6-24" tabindex="-1"></a>sattagutils<span class="sc">::</span><span class="fu">plot_series</span>(s7_5,</span>
+<span id="cb6-25"><a href="settings-regimes.html#cb6-25" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb6-26"><a href="settings-regimes.html#cb6-26" tabindex="-1"></a>)</span>
+<span id="cb6-27"><a href="settings-regimes.html#cb6-27" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="st">&quot;period = 7.5 min; 4 msg / day&quot;</span>, <span class="at">bty =</span> <span class="st">&#39;n&#39;</span>)</span>
+<span id="cb6-28"><a href="settings-regimes.html#cb6-28" tabindex="-1"></a>sattagutils<span class="sc">::</span><span class="fu">plot_series</span>(s10,</span>
+<span id="cb6-29"><a href="settings-regimes.html#cb6-29" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb6-30"><a href="settings-regimes.html#cb6-30" tabindex="-1"></a>)</span>
+<span id="cb6-31"><a href="settings-regimes.html#cb6-31" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="st">&quot;period = 10 min; 3 msg / day&quot;</span>, <span class="at">bty =</span> <span class="st">&#39;n&#39;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ser-alias"></span>
 <img src="04-setregimes_files/figure-html/ser-alias-1.png" alt="Real series data collected on a baseline *Z. cavirostris* SPLASH10 tag is shown in the top panel and successively downsampled to represent other possible sampling periods in following panels." width="90%" />
 <p class="caption">
 Figure 5.4: Real series data collected on a baseline <em>Z. cavirostris</em> SPLASH10 tag is shown in the top panel and successively downsampled to represent other possible sampling periods in following panels.
@@ -421,141 +476,141 @@ Figure 5.4: Real series data collected on a baseline <em>Z. cavirostris</em> SPL
 </div>
 </div>
 </div>
-<div id="series-data-depth-resolution" class="section level3">
-<h3><span class="header-section-number">5.2.4</span> Series data depth resolution</h3>
+<div id="series-data-depth-resolution" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Series data depth resolution<a href="settings-regimes.html#series-data-depth-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can use the same tags as above (§ <a href="settings-regimes.html#beh-dep-res">5.1.4</a>) to take a peak at the depth resolution in the series data. In this case, though we aren’t just looking at max depth of a dive but of a real time-series of depths at regular sampling intervals.</p>
 <p>You can see in Fig. <a href="settings-regimes.html#fig:ser-dep-res">5.5</a> that the bin widths are substantially greater than for the behavior data. The odd fan pattern is actually created by the somewhat dynamic assignment of bins (based on min and max in a given message of 48 samples) and is explained further below.</p>
-<pre class="sourceCode r"><code class="sourceCode r">ser &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">getstream</span>(extags, <span class="st">&quot;series&quot;</span>, <span class="dt">squash =</span> <span class="ot">TRUE</span>)
-
-<span class="kw">plot</span>(ser<span class="op">$</span>Depth, ser<span class="op">$</span>DRange<span class="op">*</span><span class="dv">2</span>,
-  <span class="dt">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>,
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span>,
-  <span class="dt">las =</span> <span class="dv">1</span>
-)</code></pre>
-<div class="figure"><span id="fig:ser-dep-res"></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="settings-regimes.html#cb7-1" tabindex="-1"></a>ser <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">getstream</span>(extags, <span class="st">&quot;series&quot;</span>, <span class="at">squash =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="settings-regimes.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="settings-regimes.html#cb7-3" tabindex="-1"></a><span class="fu">plot</span>(ser<span class="sc">$</span>Depth, ser<span class="sc">$</span>DRange<span class="sc">*</span><span class="dv">2</span>,</span>
+<span id="cb7-4"><a href="settings-regimes.html#cb7-4" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>,</span>
+<span id="cb7-5"><a href="settings-regimes.html#cb7-5" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span>,</span>
+<span id="cb7-6"><a href="settings-regimes.html#cb7-6" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">1</span></span>
+<span id="cb7-7"><a href="settings-regimes.html#cb7-7" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ser-dep-res"></span>
 <img src="04-setregimes_files/figure-html/ser-dep-res-1.png" alt="Relationship between depth (series data) and bin resolution in meters." width="60%" />
 <p class="caption">
 Figure 5.5: Relationship between depth (series data) and bin resolution in meters.
 </p>
 </div>
-<p>When we look at percentages (Fig. <a href="settings-regimes.html#fig:ser-dep-res-percentage">5.6</a>), some are extremely high. Though, note that the very high percentages are all occurring at shallow depths. When the depth range is greater than 100% the mean depth is just 13 meters. Fig. <a href="settings-regimes.html#fig:ser-dep-res-percentage-zoom">5.7</a> shows a zoom for depths of 250 meters and above. The mean depth range is still 21% of reported depth here.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(ser<span class="op">$</span>Depth, (ser<span class="op">$</span>DRange<span class="op">*</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>ser<span class="op">$</span>Depth) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>,
-  <span class="dt">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>,
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth Range (% of Depth)&quot;</span>,
-  <span class="dt">las =</span> <span class="dv">1</span>
-)</code></pre>
-<div class="figure"><span id="fig:ser-dep-res-percentage"></span>
+<p>When we look at percentages (Fig. <a href="settings-regimes.html#fig:ser-dep-res-percentage">5.6</a>), some are extremely high. Though, note that the very high percentages are all occurring at shallow depths. When the depth range is greater than 100% the mean depth is just 13 meters. Fig. <a href="settings-regimes.html#fig:ser-dep-res-percentage-zoom">5.7</a> shows a zoom for depths of 250 meters and above. The mean depth range is still 21% of reported depth here <a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="settings-regimes.html#cb8-1" tabindex="-1"></a><span class="fu">plot</span>(ser<span class="sc">$</span>Depth, (ser<span class="sc">$</span>DRange<span class="sc">*</span><span class="dv">2</span> <span class="sc">/</span> ser<span class="sc">$</span>Depth) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb8-2"><a href="settings-regimes.html#cb8-2" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>,</span>
+<span id="cb8-3"><a href="settings-regimes.html#cb8-3" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Depth Range (% of Depth)&quot;</span>,</span>
+<span id="cb8-4"><a href="settings-regimes.html#cb8-4" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">1</span></span>
+<span id="cb8-5"><a href="settings-regimes.html#cb8-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ser-dep-res-percentage"></span>
 <img src="04-setregimes_files/figure-html/ser-dep-res-percentage-1.png" alt="Relationship between depth (series data) and bin resolution expressed as a percentage of depth." width="60%" />
 <p class="caption">
 Figure 5.6: Relationship between depth (series data) and bin resolution expressed as a percentage of depth.
 </p>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(ser<span class="op">$</span>Depth[ser<span class="op">$</span>Depth <span class="op">&gt;=</span><span class="st"> </span><span class="dv">250</span>], ((ser<span class="op">$</span>DRange<span class="op">*</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span>ser<span class="op">$</span>Depth) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)[ser<span class="op">$</span>Depth <span class="op">&gt;=</span><span class="st"> </span><span class="dv">250</span>],
-  <span class="dt">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>,
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth Range (% of Depth)&quot;</span>,
-  <span class="dt">las =</span> <span class="dv">1</span>
-)</code></pre>
-<div class="figure"><span id="fig:ser-dep-res-percentage-zoom"></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="settings-regimes.html#cb9-1" tabindex="-1"></a><span class="fu">plot</span>(ser<span class="sc">$</span>Depth[ser<span class="sc">$</span>Depth <span class="sc">&gt;=</span> <span class="dv">250</span>], ((ser<span class="sc">$</span>DRange<span class="sc">*</span><span class="dv">2</span> <span class="sc">/</span> ser<span class="sc">$</span>Depth) <span class="sc">*</span> <span class="dv">100</span>)[ser<span class="sc">$</span>Depth <span class="sc">&gt;=</span> <span class="dv">250</span>],</span>
+<span id="cb9-2"><a href="settings-regimes.html#cb9-2" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>,</span>
+<span id="cb9-3"><a href="settings-regimes.html#cb9-3" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Depth Range (% of Depth)&quot;</span>,</span>
+<span id="cb9-4"><a href="settings-regimes.html#cb9-4" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">1</span></span>
+<span id="cb9-5"><a href="settings-regimes.html#cb9-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ser-dep-res-percentage-zoom"></span>
 <img src="04-setregimes_files/figure-html/ser-dep-res-percentage-zoom-1.png" alt="Relationship between depth (series data) and bin resolution expressed as a percentage of depth. Only depths 250 meters and greater are plotted." width="60%" />
 <p class="caption">
 Figure 5.7: Relationship between depth (series data) and bin resolution expressed as a percentage of depth. Only depths 250 meters and greater are plotted.
 </p>
 </div>
 <p>To understand how the 16 bins are set it is neccessary to look at one message at a time. Here I’ll just take the first full<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> message of one our example tags. You can see below that there is still a sort of step function similar to what we saw in the behavior data in the bin widths but it is more complex here as there is some variation within each ‘step’ <a href="settings-regimes.html#fig:ser-dep-res-one-mesage">5.8</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r">t1 &lt;-<span class="st"> </span>extags[[<span class="dv">1</span>]]
-ser &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">getstream</span>(t1, <span class="st">&quot;series&quot;</span>, <span class="dt">squash =</span> <span class="ot">TRUE</span>)
-msg &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">getstream</span>(t1, <span class="st">&quot;seriesrange&quot;</span>, <span class="dt">squash =</span> <span class="ot">TRUE</span>)
-
-st_firstfull &lt;-<span class="st"> </span>msg<span class="op">$</span>Start[<span class="dv">2</span>]
-
-ser2 &lt;-<span class="st"> </span>ser[ser<span class="op">$</span>Date <span class="op">&gt;=</span><span class="st"> </span>st_firstfull]
-ser_msg1 &lt;-<span class="st"> </span>ser2[<span class="dv">1</span><span class="op">:</span><span class="dv">48</span>, ]
-
-<span class="kw">plot</span>(ser_msg1<span class="op">$</span>Depth, ser_msg1<span class="op">$</span>DRange<span class="op">*</span><span class="dv">2</span>,
-  <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span>
-)</code></pre>
-<div class="figure"><span id="fig:ser-dep-res-one-mesage"></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="settings-regimes.html#cb10-1" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> extags[[<span class="dv">1</span>]]</span>
+<span id="cb10-2"><a href="settings-regimes.html#cb10-2" tabindex="-1"></a>ser <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">getstream</span>(t1, <span class="st">&quot;series&quot;</span>, <span class="at">squash =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-3"><a href="settings-regimes.html#cb10-3" tabindex="-1"></a>msg <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">getstream</span>(t1, <span class="st">&quot;seriesrange&quot;</span>, <span class="at">squash =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-4"><a href="settings-regimes.html#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="settings-regimes.html#cb10-5" tabindex="-1"></a>st_firstfull <span class="ot">&lt;-</span> msg<span class="sc">$</span>Start[<span class="dv">2</span>]</span>
+<span id="cb10-6"><a href="settings-regimes.html#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="settings-regimes.html#cb10-7" tabindex="-1"></a>ser2 <span class="ot">&lt;-</span> ser[ser<span class="sc">$</span>Date <span class="sc">&gt;=</span> st_firstfull]</span>
+<span id="cb10-8"><a href="settings-regimes.html#cb10-8" tabindex="-1"></a>ser_msg1 <span class="ot">&lt;-</span> ser2[<span class="dv">1</span><span class="sc">:</span><span class="dv">48</span>, ]</span>
+<span id="cb10-9"><a href="settings-regimes.html#cb10-9" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="settings-regimes.html#cb10-10" tabindex="-1"></a><span class="fu">plot</span>(ser_msg1<span class="sc">$</span>Depth, ser_msg1<span class="sc">$</span>DRange<span class="sc">*</span><span class="dv">2</span>,</span>
+<span id="cb10-11"><a href="settings-regimes.html#cb10-11" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span></span>
+<span id="cb10-12"><a href="settings-regimes.html#cb10-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ser-dep-res-one-mesage"></span>
 <img src="04-setregimes_files/figure-html/ser-dep-res-one-mesage-1.png" alt="Relationship between depth and bin resolution in series only data." width="60%" />
 <p class="caption">
 Figure 5.8: Relationship between depth and bin resolution in series only data.
 </p>
 </div>
 <p>I’ll plot 10 messages together color coded by message on the same graph to see how the overall pattern is created in bin width and depth (Fig. <a href="settings-regimes.html#fig:ser-error-ten-msg">5.9</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r">cols &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">each =</span> <span class="dv">48</span>)
-
-ser_10msg &lt;-<span class="st"> </span>ser2[<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(cols), ]
-
-<span class="kw">plot</span>(ser_10msg<span class="op">$</span>Depth, ser_10msg<span class="op">$</span>DRange<span class="op">*</span><span class="dv">2</span>,
-  <span class="dt">col =</span> cols, <span class="dt">las =</span> <span class="dv">1</span>,
-  <span class="dt">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span>
-)</code></pre>
-<div class="figure"><span id="fig:ser-error-ten-msg"></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="settings-regimes.html#cb11-1" tabindex="-1"></a>cols <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">each =</span> <span class="dv">48</span>)</span>
+<span id="cb11-2"><a href="settings-regimes.html#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="settings-regimes.html#cb11-3" tabindex="-1"></a>ser_10msg <span class="ot">&lt;-</span> ser2[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(cols), ]</span>
+<span id="cb11-4"><a href="settings-regimes.html#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="settings-regimes.html#cb11-5" tabindex="-1"></a><span class="fu">plot</span>(ser_10msg<span class="sc">$</span>Depth, ser_10msg<span class="sc">$</span>DRange<span class="sc">*</span><span class="dv">2</span>,</span>
+<span id="cb11-6"><a href="settings-regimes.html#cb11-6" tabindex="-1"></a>  <span class="at">col =</span> cols, <span class="at">las =</span> <span class="dv">1</span>,</span>
+<span id="cb11-7"><a href="settings-regimes.html#cb11-7" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Depth (meters)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Depth Range (meters)&quot;</span></span>
+<span id="cb11-8"><a href="settings-regimes.html#cb11-8" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ser-error-ten-msg"></span>
 <img src="04-setregimes_files/figure-html/ser-error-ten-msg-1.png" alt="The first 10 full messages of one of our example series tags showing the relationship between depth and bin width (twice the DRange). Each color indicates a single message." width="60%" />
 <p class="caption">
 Figure 5.9: The first 10 full messages of one of our example series tags showing the relationship between depth and bin width (twice the DRange). Each color indicates a single message.
 </p>
 </div>
-<p>It might be useful to plot these depth errors on a depth profile (Fig. <a href="settings-regimes.html#fig:ser-with-error">5.10</a>); we can use the same tag as above. This tag also happened to be recording simultaneous behavior data so we can superimpose the two data records to compare the different types of depth information (Fig. <a href="settings-regimes.html#fig:beh-ser-overlay">5.11</a>). Note that the behavior data is displayed as a dive profile but in truth it is only a sort of pseudo-dive profile.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> Depth error appears fairly negligible for shallow dives, but more substantial for the deeper dives.</p>
+<p>It might be useful to plot these depth errors on a depth profile (Fig. <a href="settings-regimes.html#fig:ser-with-error">5.10</a>); we can use the same tag as above. This tag also happened to be recording simultaneous behavior data so we can superimpose the two data records to compare the different types of depth information (Fig. <a href="settings-regimes.html#fig:beh-ser-overlay">5.11</a>). Note that the behavior data is displayed as a dive profile but in truth it is only a sort of pseudo-dive profile <a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>. Depth error appears fairly negligible for shallow dives, but more substantial for the deeper dives.</p>
 <p>It is worth noting that the series data in general appears to underestimate maximum depth on deep dives when compared to the behavior data stream. I believe this is because short forays (less than the sampling period) can be missed on the series data, but the max depth on the behavior data stream is actually logged from a 1 second (on our tags) sampling period, even though only one value and a range are retained per dive.</p>
-<pre class="sourceCode r"><code class="sourceCode r">sattagutils<span class="op">::</span><span class="kw">plot_series</span>(s5,
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;depth (meters)&quot;</span>
-)
-<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> s5<span class="op">$</span>Date, <span class="dt">lab =</span> <span class="ot">NA</span>, <span class="dt">tcl =</span> <span class="fl">0.3</span>)
-<span class="kw">segments</span>(s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth <span class="op">-</span><span class="st"> </span>s5<span class="op">$</span>DRange, s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth <span class="op">+</span><span class="st"> </span>s5<span class="op">$</span>DRange, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
-<div class="figure"><span id="fig:ser-with-error"></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="settings-regimes.html#cb12-1" tabindex="-1"></a>sattagutils<span class="sc">::</span><span class="fu">plot_series</span>(s5,</span>
+<span id="cb12-2"><a href="settings-regimes.html#cb12-2" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1100</span>, <span class="dv">0</span>), <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;depth (meters)&quot;</span></span>
+<span id="cb12-3"><a href="settings-regimes.html#cb12-3" tabindex="-1"></a>)</span>
+<span id="cb12-4"><a href="settings-regimes.html#cb12-4" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> s5<span class="sc">$</span>Date, <span class="at">lab =</span> <span class="cn">NA</span>, <span class="at">tcl =</span> <span class="fl">0.3</span>)</span>
+<span id="cb12-5"><a href="settings-regimes.html#cb12-5" tabindex="-1"></a><span class="fu">segments</span>(s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth <span class="sc">-</span> s5<span class="sc">$</span>DRange, s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth <span class="sc">+</span> s5<span class="sc">$</span>DRange, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ser-with-error"></span>
 <img src="04-setregimes_files/figure-html/ser-with-error-1.png" alt="An example series dive profile (5 min sampling period) with depth bin resolution indicated in red." width="90%" />
 <p class="caption">
 Figure 5.10: An example series dive profile (5 min sampling period) with depth bin resolution indicated in red.
 </p>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># this function is still being migrated into sattagutils</span>
-<span class="kw">source</span>(<span class="st">&quot;helper_functions/plot_dives.R&quot;</span>)
-b1 &lt;-<span class="st"> </span>sattagutils<span class="op">::</span><span class="kw">getstream</span>(extags[[<span class="dv">1</span>]], <span class="st">&quot;behavior&quot;</span>, <span class="dt">squash =</span> <span class="ot">TRUE</span>)
-overlap &lt;-<span class="st"> </span>b1<span class="op">$</span>Start <span class="op">&gt;=</span><span class="st"> </span>s5<span class="op">$</span>Date[<span class="dv">1</span>] <span class="op">&amp;</span><span class="st"> </span>b1<span class="op">$</span>End <span class="op">&lt;=</span><span class="st"> </span>s5<span class="op">$</span>Date[<span class="kw">nrow</span>(s5)]
-
-<span class="kw">plot_dives2</span>(b1[overlap, ], 
-  <span class="dt">show_gaps =</span> <span class="ot">FALSE</span>, <span class="dt">legend =</span> <span class="ot">FALSE</span>, 
-  <span class="dt">start_time =</span> sattagutils<span class="op">::</span><span class="kw">num2date</span>(s5<span class="op">$</span>Date[<span class="dv">1</span>]),
-  <span class="dt">end_time =</span> sattagutils<span class="op">::</span><span class="kw">num2date</span>(s5<span class="op">$</span>Date[<span class="kw">nrow</span>(s5)]), 
-  <span class="dt">pch =</span> <span class="ot">NA</span>, <span class="dt">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>
-)
-
-<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> s5<span class="op">$</span>Date, <span class="dt">lab =</span> <span class="ot">NA</span>, <span class="dt">tcl =</span> <span class="fl">0.3</span>)
-<span class="kw">points</span>(s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">.5</span>)
-<span class="kw">lines</span>(s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth)
-<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> s5<span class="op">$</span>Date, <span class="dt">lab =</span> <span class="ot">NA</span>, <span class="dt">tcl =</span> <span class="fl">0.3</span>)
-<span class="kw">points</span>(s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth, <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">.5</span>)
-<span class="kw">lines</span>(s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth)
-
-<span class="kw">segments</span>(s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth <span class="op">-</span><span class="st"> </span>s5<span class="op">$</span>DRange,
-  s5<span class="op">$</span>Date, <span class="op">-</span>s5<span class="op">$</span>Depth <span class="op">+</span><span class="st"> </span>s5<span class="op">$</span>DRange, 
-  <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>
-)</code></pre>
-<div class="figure"><span id="fig:beh-ser-overlay"></span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="settings-regimes.html#cb13-1" tabindex="-1"></a><span class="co"># this function is still being migrated into sattagutils</span></span>
+<span id="cb13-2"><a href="settings-regimes.html#cb13-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;helper_functions/plot_dives.R&quot;</span>)</span>
+<span id="cb13-3"><a href="settings-regimes.html#cb13-3" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> sattagutils<span class="sc">::</span><span class="fu">getstream</span>(extags[[<span class="dv">1</span>]], <span class="st">&quot;behavior&quot;</span>, <span class="at">squash =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-4"><a href="settings-regimes.html#cb13-4" tabindex="-1"></a>overlap <span class="ot">&lt;-</span> b1<span class="sc">$</span>Start <span class="sc">&gt;=</span> s5<span class="sc">$</span>Date[<span class="dv">1</span>] <span class="sc">&amp;</span> b1<span class="sc">$</span>End <span class="sc">&lt;=</span> s5<span class="sc">$</span>Date[<span class="fu">nrow</span>(s5)]</span>
+<span id="cb13-5"><a href="settings-regimes.html#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="settings-regimes.html#cb13-6" tabindex="-1"></a><span class="fu">plot_dives2</span>(b1[overlap, ], </span>
+<span id="cb13-7"><a href="settings-regimes.html#cb13-7" tabindex="-1"></a>  <span class="at">show_gaps =</span> <span class="cn">FALSE</span>, <span class="at">legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb13-8"><a href="settings-regimes.html#cb13-8" tabindex="-1"></a>  <span class="at">start_time =</span> sattagutils<span class="sc">::</span><span class="fu">num2date</span>(s5<span class="sc">$</span>Date[<span class="dv">1</span>]),</span>
+<span id="cb13-9"><a href="settings-regimes.html#cb13-9" tabindex="-1"></a>  <span class="at">end_time =</span> sattagutils<span class="sc">::</span><span class="fu">num2date</span>(s5<span class="sc">$</span>Date[<span class="fu">nrow</span>(s5)]), </span>
+<span id="cb13-10"><a href="settings-regimes.html#cb13-10" tabindex="-1"></a>  <span class="at">pch =</span> <span class="cn">NA</span>, <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span></span>
+<span id="cb13-11"><a href="settings-regimes.html#cb13-11" tabindex="-1"></a>)</span>
+<span id="cb13-12"><a href="settings-regimes.html#cb13-12" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="settings-regimes.html#cb13-13" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> s5<span class="sc">$</span>Date, <span class="at">lab =</span> <span class="cn">NA</span>, <span class="at">tcl =</span> <span class="fl">0.3</span>)</span>
+<span id="cb13-14"><a href="settings-regimes.html#cb13-14" tabindex="-1"></a><span class="fu">points</span>(s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> .<span class="dv">5</span>)</span>
+<span id="cb13-15"><a href="settings-regimes.html#cb13-15" tabindex="-1"></a><span class="fu">lines</span>(s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth)</span>
+<span id="cb13-16"><a href="settings-regimes.html#cb13-16" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> s5<span class="sc">$</span>Date, <span class="at">lab =</span> <span class="cn">NA</span>, <span class="at">tcl =</span> <span class="fl">0.3</span>)</span>
+<span id="cb13-17"><a href="settings-regimes.html#cb13-17" tabindex="-1"></a><span class="fu">points</span>(s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">cex =</span> .<span class="dv">5</span>)</span>
+<span id="cb13-18"><a href="settings-regimes.html#cb13-18" tabindex="-1"></a><span class="fu">lines</span>(s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth)</span>
+<span id="cb13-19"><a href="settings-regimes.html#cb13-19" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="settings-regimes.html#cb13-20" tabindex="-1"></a><span class="fu">segments</span>(s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth <span class="sc">-</span> s5<span class="sc">$</span>DRange,</span>
+<span id="cb13-21"><a href="settings-regimes.html#cb13-21" tabindex="-1"></a>  s5<span class="sc">$</span>Date, <span class="sc">-</span>s5<span class="sc">$</span>Depth <span class="sc">+</span> s5<span class="sc">$</span>DRange, </span>
+<span id="cb13-22"><a href="settings-regimes.html#cb13-22" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">&quot;red&quot;</span></span>
+<span id="cb13-23"><a href="settings-regimes.html#cb13-23" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:beh-ser-overlay"></span>
 <img src="04-setregimes_files/figure-html/beh-ser-overlay-1.png" alt="Series dive profile (black) and behavior pseudo-dive profile (blue) superimposed for a tag that was recording both streams simultaneously. Red verticle segments indicate depth resolution for the series data." width="90%" />
 <p class="caption">
 Figure 5.11: Series dive profile (black) and behavior pseudo-dive profile (blue) superimposed for a tag that was recording both streams simultaneously. Red verticle segments indicate depth resolution for the series data.
 </p>
 </div>
 </div>
-<div id="in-the-field-performance" class="section level3">
-<h3><span class="header-section-number">5.2.5</span> In the field performance</h3>
+<div id="in-the-field-performance" class="section level3 hasAnchor" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> In the field performance<a href="settings-regimes.html#in-the-field-performance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>I won’t get into all the details here of in the field performance because we’re still working on assessing it, but I will point out a couple of things. In general, the settings performed well despite some apparently unrelated tag failures. Several of the tags produced near perfect records. After 14 days of data collection it tended to take about another 10-14 days to complete transmission of those records, which brought the total tag close to the median SPLASH10 deployment survival time on <em>Z. cavirostris</em> of about 30 days. Fig. <a href="settings-regimes.html#fig:series-series-high">5.12</a> shows an animation of the message arrival pattern for a well performing tag, which was placed high on the dorsal fin<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. Fig. <a href="settings-regimes.html#fig:series-series-low">5.13</a> shows a similar plot for a poorer performing tag with a lower dorsal fin attachment. It was also noted in the field that this animal tended to surface low. Arrival of messages is slower for this tag and average number of times each message was received was also lower. Nevertheless, the majority of messages were ultimately received by satellite. These messages were also supplemented by those captured in the field using a boat based receiver (not displayed here, see § <a href="goniometer.html#goniometer">7</a>).</p>
-<div class="figure"><span id="fig:series-series-high"></span>
+<div class="figure"><span style="display:block;" id="fig:series-series-high"></span>
 <img src="images/460_series_series.gif" alt="Series message arrival pattern for a well performing tag with good placement. Data download date can be seen advancing above plot. Bars indicate how many times each series data message was received and pink areas indicate data gaps." width="90%" />
 <p class="caption">
 Figure 5.12: Series message arrival pattern for a well performing tag with good placement. Data download date can be seen advancing above plot. Bars indicate how many times each series data message was received and pink areas indicate data gaps.
 </p>
 </div>
-<div class="figure"><span id="fig:series-series-low"></span>
+<div class="figure"><span style="display:block;" id="fig:series-series-low"></span>
 <img src="images/750_series_series.gif" alt="Series message arrival pattern for a low tag placement. Data download date can be seen advancing above plot. Bars indicate how many times each series data message was received and pink areas indicate data gaps." width="90%" />
 <p class="caption">
 Figure 5.13: Series message arrival pattern for a low tag placement. Data download date can be seen advancing above plot. Bars indicate how many times each series data message was received and pink areas indicate data gaps.
 </p>
 </div>
 </div>
-<div id="future-directions" class="section level3">
-<h3><span class="header-section-number">5.2.6</span> Future directions</h3>
+<div id="future-directions" class="section level3 hasAnchor" number="5.2.6">
+<h3><span class="header-section-number">5.2.6</span> Future directions<a href="settings-regimes.html#future-directions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Some considerations for future series based tags include:</p>
 <ul>
 <li>Higher resolution w/ shorter collection interval</li>
@@ -564,13 +619,13 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </ul>
 </div>
 </div>
-<div id="brs-fastloc-tags" class="section level2">
-<h2><span class="header-section-number">5.3</span> BRS fastloc tags</h2>
-<p>What follows are just some very cursory notes on the fastloc tags (SPLASH10-F) used during BRS; we haven’t looked at any of this in great detail. There was one fastloc equipped tag deployed before BRS <span class="citation">(see Baird et al. <a href="#ref-baird_report2017">2017</a>)</span>, but it was a sort of prototype and set up very differently from subsequent tags and I won’t focus on it here. During BRS3, 3 fastloc tags were deployed on <em>G. macrorhynchus</em> and 2 fastloc deployed during BRS4, one on a <em>Z. cavirostris</em> and one on a <em>G. macrorhynchus</em>.</p>
-<div id="brs3-fastloc-tags" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> BRS3 fastloc tags</h3>
-<div id="key-settings-1" class="section level4">
-<h4><span class="header-section-number">5.3.1.1</span> Key settings</h4>
+<div id="brs-fastloc-tags" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> BRS fastloc tags<a href="settings-regimes.html#brs-fastloc-tags" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>What follows are just some very cursory notes on the fastloc tags (SPLASH10-F) used during BRS; we haven’t looked at any of this in great detail. There was one fastloc equipped tag deployed before BRS <span class="citation">(see <a href="#ref-baird_report2017">Baird et al. 2017</a>)</span>, but it was a sort of prototype and set up very differently from subsequent tags and I won’t focus on it here. During BRS3, 3 fastloc tags were deployed on <em>G. macrorhynchus</em> and 2 fastloc deployed during BRS4, one on a <em>Z. cavirostris</em> and one on a <em>G. macrorhynchus</em>.</p>
+<div id="brs3-fastloc-tags" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> BRS3 fastloc tags<a href="settings-regimes.html#brs3-fastloc-tags" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="key-settings-1" class="section level4 hasAnchor" number="5.3.1.1">
+<h4><span class="header-section-number">5.3.1.1</span> Key settings<a href="settings-regimes.html#key-settings-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>2 day buffer</li>
 <li>ignore dives shallower than 75 meters, less than 30 seconds</li>
@@ -581,13 +636,22 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <li>max 96 attempts per day</li>
 </ul>
 </div>
-<div id="performance" class="section level4">
-<h4><span class="header-section-number">5.3.1.2</span> Performance</h4>
+<div id="performance" class="section level4 hasAnchor" number="5.3.1.2">
+<h4><span class="header-section-number">5.3.1.2</span> Performance<a href="settings-regimes.html#performance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <caption><span id="tab:brs3-fastloc-beh-perf">Table 5.1: </span>Behavior data stream gap summary statistics. Gma = <em>Globicephala macrorhynchus</em></caption>
+<colgroup>
+<col width="8%" />
+<col width="5%" />
+<col width="17%" />
+<col width="13%" />
+<col width="15%" />
+<col width="16%" />
+<col width="22%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th align="left"></th>
 <th align="left">species</th>
 <th align="left">data record length (days)</th>
 <th align="left">number of data gaps</th>
@@ -598,7 +662,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </thead>
 <tbody>
 <tr class="odd">
-<td>exgpstag3_1</td>
+<td align="left">exgpstag3_1</td>
 <td align="left">Gma</td>
 <td align="left">19</td>
 <td align="left">20</td>
@@ -607,7 +671,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">0.17</td>
 </tr>
 <tr class="even">
-<td>exgpstag3_2</td>
+<td align="left">exgpstag3_2</td>
 <td align="left">Gma</td>
 <td align="left">11</td>
 <td align="left">17</td>
@@ -616,7 +680,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">0.52</td>
 </tr>
 <tr class="odd">
-<td>exgpstag3_3</td>
+<td align="left">exgpstag3_3</td>
 <td align="left">Gma</td>
 <td align="left">24</td>
 <td align="left">39</td>
@@ -626,11 +690,25 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </tr>
 </tbody>
 </table>
-<table>
+<table style="width:100%;">
 <caption><span id="tab:brs3-fastloc-loc-perf">Table 5.2: </span>Location summary statistics including proportion of locations in each of the location quality classes. Gma = <em>Globicephala macrorhynchus</em>, lq = location quality.</caption>
+<colgroup>
+<col width="10%" />
+<col width="7%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="14%" />
+<col width="16%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th align="left"></th>
 <th align="left">species</th>
 <th align="left">n days</th>
 <th align="left">lq = Z</th>
@@ -646,7 +724,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </thead>
 <tbody>
 <tr class="odd">
-<td>exgpstag3_1</td>
+<td align="left">exgpstag3_1</td>
 <td align="left">Gma</td>
 <td align="left">19</td>
 <td align="left">0.026</td>
@@ -660,7 +738,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">12</td>
 </tr>
 <tr class="even">
-<td>exgpstag3_2</td>
+<td align="left">exgpstag3_2</td>
 <td align="left">Gma</td>
 <td align="left">11</td>
 <td align="left">0.025</td>
@@ -674,7 +752,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">14</td>
 </tr>
 <tr class="odd">
-<td>exgpstag3_3</td>
+<td align="left">exgpstag3_3</td>
 <td align="left">Gma</td>
 <td align="left">24</td>
 <td align="left">0.052</td>
@@ -691,9 +769,18 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </table>
 <table>
 <caption><span id="tab:brs3-fastloc-fastgps-perf">Table 5.3: </span>Fastloc summary statistics. Gma = <em>Globicephala macrorhynchus</em></caption>
+<colgroup>
+<col width="10%" />
+<col width="6%" />
+<col width="5%" />
+<col width="9%" />
+<col width="16%" />
+<col width="23%" />
+<col width="27%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th align="left"></th>
 <th align="left">species</th>
 <th align="left">n days</th>
 <th align="left">n fastlocs</th>
@@ -704,7 +791,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </thead>
 <tbody>
 <tr class="odd">
-<td>exgpstag3_1</td>
+<td align="left">exgpstag3_1</td>
 <td align="left">Gma</td>
 <td align="left">19</td>
 <td align="left">443</td>
@@ -713,7 +800,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">1.03</td>
 </tr>
 <tr class="even">
-<td>exgpstag3_2</td>
+<td align="left">exgpstag3_2</td>
 <td align="left">Gma</td>
 <td align="left">11</td>
 <td align="left">273</td>
@@ -722,7 +809,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">0.99</td>
 </tr>
 <tr class="odd">
-<td>exgpstag3_3</td>
+<td align="left">exgpstag3_3</td>
 <td align="left">Gma</td>
 <td align="left">24</td>
 <td align="left">287</td>
@@ -734,22 +821,36 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </table>
 </div>
 </div>
-<div id="brs4-fastloc-tags" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> BRS4 fastloc tags</h3>
-<div id="key-settings-2" class="section level4">
-<h4><span class="header-section-number">5.3.2.1</span> Key settings</h4>
+<div id="brs4-fastloc-tags" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> BRS4 fastloc tags<a href="settings-regimes.html#brs4-fastloc-tags" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="key-settings-2" class="section level4 hasAnchor" number="5.3.2.1">
+<h4><span class="header-section-number">5.3.2.1</span> Key settings<a href="settings-regimes.html#key-settings-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>no behavior data</li>
 <li>otherwise similar to BRS3</li>
 </ul>
 </div>
-<div id="performance-1" class="section level4">
-<h4><span class="header-section-number">5.3.2.2</span> Performance</h4>
-<table>
+<div id="performance-1" class="section level4 hasAnchor" number="5.3.2.2">
+<h4><span class="header-section-number">5.3.2.2</span> Performance<a href="settings-regimes.html#performance-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table style="width:100%;">
 <caption><span id="tab:brs4-fastloc-loc-perf">Table 5.4: </span>Location summary statistics including proportion of locations in each of the location quality classes. Gma = <em>Globicephala macrorhynchus</em>, Zca = <em>Ziphius cavirostris</em>, lq = location quality.</caption>
+<colgroup>
+<col width="10%" />
+<col width="7%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="14%" />
+<col width="16%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th align="left"></th>
 <th align="left">species</th>
 <th align="left">n days</th>
 <th align="left">lq = Z</th>
@@ -765,7 +866,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </thead>
 <tbody>
 <tr class="odd">
-<td>exgpstag4_1</td>
+<td align="left">exgpstag4_1</td>
 <td align="left">Gma</td>
 <td align="left">21</td>
 <td align="left">0.029</td>
@@ -779,7 +880,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">11</td>
 </tr>
 <tr class="even">
-<td>exgpstag4_2</td>
+<td align="left">exgpstag4_2</td>
 <td align="left">Zca</td>
 <td align="left">24</td>
 <td align="left">0.242</td>
@@ -796,9 +897,18 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </table>
 <table>
 <caption><span id="tab:brs4-fastloc-fastgps-perf">Table 5.5: </span>Fastloc summary statistics. Gma = <em>Globicephala macrorhynchus</em></caption>
+<colgroup>
+<col width="10%" />
+<col width="6%" />
+<col width="5%" />
+<col width="9%" />
+<col width="16%" />
+<col width="23%" />
+<col width="27%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th align="left"></th>
 <th align="left">species</th>
 <th align="left">n days</th>
 <th align="left">n fastlocs</th>
@@ -809,7 +919,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </thead>
 <tbody>
 <tr class="odd">
-<td>exgpstag4_1</td>
+<td align="left">exgpstag4_1</td>
 <td align="left">Gma</td>
 <td align="left">21</td>
 <td align="left">333</td>
@@ -818,7 +928,7 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 <td align="left">1.4</td>
 </tr>
 <tr class="even">
-<td>exgpstag4_2</td>
+<td align="left">exgpstag4_2</td>
 <td align="left">Zca</td>
 <td align="left">24</td>
 <td align="left">182</td>
@@ -833,24 +943,24 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
 </div>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-quick2019mind">
-<p><span class="smallcaps">Quick, N. J., W. R. Cioffi, J. Shearer, and A. J. Read</span>. 2019. Mind the gap: Optimizing satellite tag settings for time series analysis of foraging dives in Cuvier’s beaked whales (<em>Ziphius cavirostris)</em>. Animal Biotelemetry 7:5.</p>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="1">
+<div id="ref-baird_report2017" class="csl-entry">
+<span class="smallcaps">Baird, R. W.</span>, <span class="smallcaps">D. L. Webster</span>, <span class="smallcaps">Z. T. Swaim</span>, <span class="smallcaps">H. J. Foley</span>, <span class="smallcaps">D. B. Anderson</span>, and <span class="smallcaps">A. J. Read</span>. 2017. Spatial <span>Use</span> by <span>Odontocetes</span> <span>Satellite</span> <span>Tagged</span> off <span>Cape</span> <span>Hatteras</span>, <span>North</span> <span>Carolina</span> in 2016. <span>Prepared</span> for <span>U</span>.<span>S</span>. <span>Fleet</span> <span>Forces</span> <span>Command</span>. <span>Submitted</span> to <span>Naval</span> <span>Facilities</span> <span>Engineering</span> <span>Command</span> <span>Atlantic</span>, <span>Norfolk</span> <span>Virginia</span>, under <span>Contract</span> <span>No</span>. <span>N</span>62470-15-<span>D</span>8006, <span>Task</span> <span>Order</span> 28, issued to <span>HDR</span> <span>Inc</span>., <span>Virginia</span> <span>Beach</span>, <span>Virginia</span>. <span>August</span> 2017.
 </div>
-<div id="ref-baird_report2017">
-<p><span class="smallcaps">Baird, R. W., D. L. Webster, Z. T. Swaim, H. J. Foley, D. B. Anderson, and A. J. Read</span>. 2017. Spatial Use by Odontocetes Satellite Tagged off Cape Hatteras, North Carolina in 2016. Prepared for U.S. Fleet Forces Command. Submitted to Naval Facilities Engineering Command Atlantic, Norfolk Virginia, under Contract No. N62470-15-D8006, Task Order 28, issued to HDR Inc., Virginia Beach, Virginia. August 2017.</p>
+<div id="ref-quick2019mind" class="csl-entry">
+<span class="smallcaps">Quick, N. J.</span>, <span class="smallcaps">W. R. Cioffi</span>, <span class="smallcaps">J. Shearer</span>, and <span class="smallcaps">A. J. Read</span>. 2019. Mind the gap: Optimizing satellite tag settings for time series analysis of foraging dives in <span class="nocase">Cuvier’s</span> beaked whales (<em><span>Ziphius</span> cavirostris)</em>. Animal Biotelemetry 7:5.
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="10">
-<li id="fn10"><p>I’m currently preparing a manuscript describing this setting configuration in detail and comparing series derived dive metrics to those derived from other data collection regimes. Whitepaper: <a href="https://osf.io/k8p94/" class="uri">https://osf.io/k8p94/</a><a href="settings-regimes.html#fnref10" class="footnote-back">↩</a></p></li>
-<li id="fn11"><p>Wildlife Computers does have a simulator to test tag configurations. It requires some seed data, but then will run the tag as configured through many simulated deployments and produce sample outputs which can be assessed. We did not avail ourselves of this service in this case.<a href="settings-regimes.html#fnref11" class="footnote-back">↩</a></p></li>
-<li id="fn12"><p>Some preliminary analysis of tags which were simultaneously collecting both behavior and series data suggests that on average the series data actually performs better than these theoretical ranges when maximum depths are compared between series dive profiles and behavior dive events.<a href="settings-regimes.html#fnref12" class="footnote-back">↩</a></p></li>
-<li id="fn13"><p>Series messages are actually scheduled based on real time depending on the sampling period. That is at 5.0 minute period, messages always end at 00, 04, 08, 16, and 20hrs. Therefore, whenever the tag is deployed it typically sends a shorter first message, before ending on schedule and then being aligned with 48 sample messages from that point forward.<a href="settings-regimes.html#fnref13" class="footnote-back">↩</a></p></li>
-<li id="fn14"><p>The shape of the dives here are just to indicate qualitative differences between square, U-, and V-shaped dives as reported in the behavior data stream.<a href="settings-regimes.html#fnref14" class="footnote-back">↩</a></p></li>
-<li id="fn15"><p>Dorsal fin placement seems to be a major determinant of how many messages are successfully transmitted to satellite <span class="citation">(see Quick et al. <a href="#ref-quick2019mind">2019</a>)</span><a href="settings-regimes.html#fnref15" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>I’m currently preparing a manuscript describing this setting configuration in detail and comparing series derived dive metrics to those derived from other data collection regimes. Whitepaper: <a href="https://osf.io/k8p94/" class="uri">https://osf.io/k8p94/</a><a href="settings-regimes.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Wildlife Computers does have a simulator to test tag configurations. It requires some seed data, but then will run the tag as configured through many simulated deployments and produce sample outputs which can be assessed. We did not avail ourselves of this service in this case.<a href="settings-regimes.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Some preliminary analysis of tags which were simultaneously collecting both behavior and series data suggests that on average the series data actually performs better than these theoretical ranges when maximum depths are compared between series dive profiles and behavior dive events.<a href="settings-regimes.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Series messages are actually scheduled based on real time depending on the sampling period. That is at 5.0 minute period, messages always end at 00, 04, 08, 16, and 20hrs. Therefore, whenever the tag is deployed it typically sends a shorter first message, before ending on schedule and then being aligned with 48 sample messages from that point forward.<a href="settings-regimes.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>The shape of the dives here are just to indicate qualitative differences between square, U-, and V-shaped dives as reported in the behavior data stream.<a href="settings-regimes.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Dorsal fin placement seems to be a major determinant of how many messages are successfully transmitted to satellite <span class="citation">(see <a href="#ref-quick2019mind">Quick et al. 2019</a>)</span><a href="settings-regimes.html#fnref15" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -863,12 +973,13 @@ Figure 5.13: Series message arrival pattern for a low tag placement. Data downlo
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -886,7 +997,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -900,9 +1019,10 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Goniometer | sattag_supplement</title>
+  <title>Page not found | sattag_supplement</title>
   <meta name="description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Goniometer | sattag_supplement" />
+  <meta property="og:title" content="Page not found | sattag_supplement" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
   <meta name="github-repo" content="williamcioffi/sattag_supplement" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Goniometer | sattag_supplement" />
+  <meta name="twitter:title" content="Page not found | sattag_supplement" />
   
   <meta name="twitter:description" content="a supplement to the official Wildlife Computers documentation for use at DUML" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sattagutils.html"/>
-<link rel="next" href="failures.html"/>
+
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -336,258 +336,19 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="goniometer" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">7</span> Goniometer<a href="goniometer.html#goniometer" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The Woods Hole Group (formerly CLS America) rents and sells an antenna and receiver that they call the <a href="https://www.clsamerica.com/argos-Goniometer">Argos Goniometer</a>. This machine can pick up and directionalize Argos PTTs and even downloads messages.</p>
-<p>We set up our Goniometer to run in hyperterminal mode connected to a laptop on the boat. Basically this spits the Goniometer log out to a text file. There are a couple of different types of text that are displayed in that log but it is mostly comma separated values.</p>
-<p>From the R/V Barber and an 3.4 meter mast for the antenna, we have perhaps a range of 4 miles at maximum. Occasionally there are odd atmospheric days that greatly increase range. From Carolina boats (charter boats) like the F/V Kahuna or F/V Hog Wild we get more like 7 miles range. Accuracy of direction readings increases with proximity.</p>
-<div id="good-goniometers-and-bad-goniometers" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Good goniometers and bad goniometers<a href="goniometer.html#good-goniometers-and-bad-goniometers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The goniometer comes in two main parts. The antenna and the receiver. We’ve never had an obvious problem with the performance of an antenna, and Wood’s Hole Group technical staff suggests that problems generally arise from the receiver.</p>
-<p>Below is a table of some of the antennas and receivers we’ve tested. All the serial numbers we’ve had have been in the form XXXX-3460313.</p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="13%" />
-<col width="13%" />
-<col width="12%" />
-<col width="44%" />
-<col width="9%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="right">S/N</th>
-<th>Instrument</th>
-<th>Function</th>
-<th>Condition</th>
-<th>Notes</th>
-<th>Owner</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0062</td>
-<td>Receiver</td>
-<td>Good</td>
-<td>Fair</td>
-<td>GPS antenna plastic cracked<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></td>
-<td>DUML</td>
-</tr>
-<tr class="even">
-<td align="right">0059</td>
-<td>Antenna</td>
-<td>Good</td>
-<td>Good</td>
-<td></td>
-<td>DUML</td>
-</tr>
-<tr class="odd">
-<td align="right">0108</td>
-<td>Receiver</td>
-<td>Good</td>
-<td>Good</td>
-<td></td>
-<td>Rental</td>
-</tr>
-<tr class="even">
-<td align="right">0123</td>
-<td>Receiver</td>
-<td>Good</td>
-<td>Good</td>
-<td></td>
-<td>Rental</td>
-</tr>
-<tr class="odd">
-<td align="right">0060</td>
-<td>Receiver</td>
-<td>Bad</td>
-<td>Good</td>
-<td>poor signal / unreliable dir</td>
-<td>Rental</td>
-</tr>
-<tr class="even">
-<td align="right">Demo</td>
-<td>Receiver</td>
-<td>Incomplete</td>
-<td>Good</td>
-<td>no direction</td>
-<td>Rental</td>
-</tr>
-<tr class="odd">
-<td align="right">????</td>
-<td>Receiver</td>
-<td>Bad</td>
-<td>Good</td>
-<td>(BRS1) poor signal? / unreliable dir</td>
-<td>Rental</td>
-</tr>
-<tr class="even">
-<td align="right">0135</td>
-<td>Antenna</td>
-<td>Good</td>
-<td>Fair</td>
-<td>crossthreaded</td>
-<td>Rental</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="how-to-test-a-receiver" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> How to test a receiver<a href="goniometer.html#how-to-test-a-receiver" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The simplest test of a reciever is to a turn on a tag briefly. This is best done outside and away from RF interference, but I’ve also just done it in the house and it has worked fine. When the tag is within a few feet of the goniometer the signal strength should be 0 (the strongest possible). Directionality can also be checked in this way by moving the tag in relation to the antenna noting the position of the nubbin which indicates 0° (forward).</p>
-<p>A better test is with the antenna rigged onto the boat to walk around the boat the with a test tag transmitting to confirm signal strength and directionality. Again, you should be able to get the signal strength to 0 with this method. We’ve also tried leaving the test tag tansmitting on the dock and taking the small boat with a rigged antenna farther and farther away to do a simple range test. This can be tricky, because there are a lot of obstructions and interference near to shore. A better test could be performed at sea with two boats. It is also helpful to informally cross reference wich tags are being received between boats when there are multiple boats rigged with goniometers in the same general area tracking animals.</p>
-</div>
-<div id="incorrect-dates-in-the-goniometer-log" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> Incorrect dates in the goniometer log<a href="goniometer.html#incorrect-dates-in-the-goniometer-log" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The goniometer will occasionally produce incorrect dates. It seems like this can occur sometimes when the battery of the receiver is run down very low. This has happened to me especially when there are long periods between field efforts. My best guess is that for some reason the date gets set incorrectly prior to GPS connection in some circumstances.</p>
-<p>I’ve found the following procedure can fix this problem:</p>
-<ol style="list-style-type: decimal">
-<li><p>Back up current data just in case there is useful information or the date can
-be repaired.</p></li>
-<li><p>Make sure the unit is well charged and has a good GPS connection.</p></li>
-<li><p>Clear the memory and reset the unit.</p></li>
-<li><p>Turn everything back on and let the unit get a good GPS connection.</p></li>
-<li><p>Turn on a test tag to make sure date, time, and data all look good.</p></li>
-<li><p>If problem persists try repeating the process.</p></li>
-</ol>
-</div>
-<div id="decoding-goniometer-received-messages" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> Decoding Goniometer received messages<a href="goniometer.html#decoding-goniometer-received-messages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>I’ve written some code to decode the Goniometer received messages. Really I didn’t though, you still need <span id="dap">Argos Message Decoder.exe / DAP Processor</span> to decode the messages, but my code transforms the Goniometer type output into something that DAP Processor can read.</p>
-<p>Eventually this code will be wrapped into the <a href="sattagutils.html#sattagutils"><code>sattagutils</code></a> package, but for now it lives in a separate github <a href="https://github.com/williamcioffi/parsegonio">repo</a>. Included in the repo is a full working example.</p>
-<p>Goniometer log output usually looks something like this:</p>
-<pre><code>2017-05-02 14:42:07 : USB Connection to RXG134
-2017-05-10 21:00:38 Received : $NPRF,7,17,5,10,21,0,24,0A1FBD4,401677726,7,109,115,-128,-128,-4486401,2133099,10,192,D4049D095018019931F7F4B00960508485440003B6567FC0*46
-2017-05-10 21:00:58 Received : $NPRF,7,17,5,10,21,0,44,0A1FBD4,401677737,7,117,113,-127,-127,-4486412,2133177,2,192,D4040555502CF64C3207F4A009605084854000027FC00000*01</code></pre>
-<p>The $NPRF indicates that a platform has been favorited, but the log will also display messages from non favorited platforms with the label $NPR. The date, PTT, signal strength, bearing, among other things are recorded here. The last field is the data message.</p>
-<p>You can use <code>parsegonio()</code> to create a simulated prv file that DAP processor can read:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="goniometer.html#cb25-1" tabindex="-1"></a>gfile <span class="ot">&lt;-</span> <span class="st">&quot;gonio_ex_log.txt&quot;</span></span>
-<span id="cb25-2"><a href="goniometer.html#cb25-2" tabindex="-1"></a>pttkey_file <span class="ot">&lt;-</span> <span class="st">&quot;pttkey.csv&quot;</span></span>
-<span id="cb25-3"><a href="goniometer.html#cb25-3" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="goniometer.html#cb25-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;parsegonio.r&quot;</span>)</span>
-<span id="cb25-5"><a href="goniometer.html#cb25-5" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">parsegonio</span>(gfile, pttkey_file)</span>
-<span id="cb25-6"><a href="goniometer.html#cb25-6" tabindex="-1"></a><span class="fu">cat</span>(output, <span class="at">file =</span> <span class="st">&quot;gonio_output.prv&quot;</span>)</span></code></pre></div>
-<p><code>parsegonio()</code> takes two parameters: <code>pttkey_file</code> is a csv which includes the PTT, hex, and DeployID of platforms of interest (only the PTT and hex are necessary) and <code>gfile</code> is an example Goniometer log.</p>
-<p>I’ve saved the output to gonio_output.prv here. It seems like there is some flexibility in the prv format and I’ve taken some liberties, mainly because I don’t entirely understand every part of the format. In my simulated prv, for each platform, all the messages from the Goniometer log are lumped under one satellite pass even if they occurred over many days. This isn’t realistic, but DAP Processor doesn’t seem to mind and satellite passes don’t mean anything in this use case anyway. In addition, real prv files include the solved Argos position. Obviously I don’t have one, so I just added a point right outside Pilkey.</p>
-<p>Once you have the simulated prv output you can just drag it into DAP processor. It helps to have preloaded a workspace with wch files as well as DAP will use the tag settings during decoding, though you can still get something even without them.</p>
-<div class="figure"><span style="display:block;" id="fig:dap-window"></span>
-<img src="images/dap_ex.png" alt="The example goniometer messages included in parsegonio decoded by Argos Message Decoder.exe / DAP Processor" width="60%" />
-<p class="caption">
-Figure 7.1: The example goniometer messages included in parsegonio decoded by Argos Message Decoder.exe / DAP Processor
-</p>
-</div>
-<p>csv files can now be exported. Aome of these for instance, *-Locations.csv, *-Argos.csv will be complete junk. Others will mostly make sense, but be sure to ignore anything to do with Dopler locations or satellite passes.</p>
-<div id="locations-and-fastgps" class="section level3 hasAnchor" number="7.4.1">
-<h3><span class="header-section-number">7.4.1</span> Locations and FastGPS<a href="goniometer.html#locations-and-fastgps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>While the Goniometer received messages do not provide Doppler positions there are two ways in which they may assist with real locations.</p>
-<p>The first way we can more positional information, from Rob Schick, is to use Goniometer bearing to constrain the error ellipses on Doppler positions. See Rob’s figure <a href="https://osf.io/2mny3/">here on the osf</a>.</p>
-<p>The second way we can get additional positions is with the FastGPS messages. These messages consist of time and range information for GPS satellites, which are later solved (serverside) for positions. We can use <a href="goniometer.html#dap">DAP / Argos Message Decoder</a> to solve these positions after the fact even from Goniometer received FastGPS messages. If some of these messages were never received by the satellite then they represent added location data. Care must be taken, however, when thinking about the init locations. DAP / Argos Message Decoder decides which recent location is the best to use as an init and if there is nothing better recently it will use a Argos Doppler position, even a low quality one. Since I’ve simulated the <code>prv</code> file with a fake Doppler position, the FastGPS solver will sometimes use this to seed locations. I have not investigated in detail the consequences of this and have not assessed the accuracy of these positions, but it is on the list.</p>
-<p>I can think of a couple of solutions to make these FastGPS positions more accurate if indeed these erroneous init positions contribute a lot of positional error:</p>
-<ol style="list-style-type: decimal">
-<li>Use the study site centroid as the fake Argos Doppler position in <code>parsegonio</code>.</li>
-<li>Use the boat position as the fake Argos Doppler position in <code>parsegonio</code>. Since the range of the goniometer is limited, the boat should always be within 10 miles or so of the tag when it receives a message.</li>
-<li>Use the tag on position as the fake Argos Doppler position in <code>parsegonio</code>.</li>
-<li>See if I can set the Argos Doppler position to nothing in <code>parsegonio</code> (I think I can) and then combine the gonio <code>prv</code> with the real <code>prv</code> and re-decode them. DAP / Argos Message Decoder then should use a reasonable init location from whatever was received on the satellite nearest in time.</li>
-</ol>
-<p>1 is easiest. Then probably 3, then 2 and 4 are tied for being the most complicated since they pull in the most data from other sources.</p>
-<p>Probably at the very least should let the user set what they want the fake Argos Doppler position / positions to be in <code>parsegonio</code>. I’ll open an issue on the github repo.</p>
-</div>
-<div id="reintegrating-goniometer-downloaded-messages" class="section level3 hasAnchor" number="7.4.2">
-<h3><span class="header-section-number">7.4.2</span> Reintegrating Goniometer downloaded messages<a href="goniometer.html#reintegrating-goniometer-downloaded-messages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>I haven’t dealt with this much yet. Obviously care should be taken when integrating Argos uplinked/downloaded messages and those from the Goniometer to avoid location, message block, or time confusion. Nevertheless goniometer downloaded data can provide additional dive data, additional fastloc positions (which DAP Processor can solve), as well as additional status messages to aid in error detection.</p>
-<p>To illustrate the possible complexities of this take a look at a draft BRS analysis flow chart showing some of the processing steps for integrating data between different sources (Fig. <a href="goniometer.html#fig:brsflowchart-sattag-processing">7.2</a>). You’ll see that we sometimes run two Goniometers at once. This step is also tricky because I’m not sure it can be automated. Is there a command line interface for DAP Processor? Or can we upload the simulated prv files to the Wildlife Computers portal using the API?</p>
-<div class="figure"><span style="display:block;" id="fig:brsflowchart-sattag-processing"></span>
-<img src="images/brs_flowchart_sattagprocessing.png" alt="BRS analysis (draft) flow chart for sattag processing" width="90%" />
-<p class="caption">
-Figure 7.2: BRS analysis (draft) flow chart for sattag processing
-</p>
-</div>
-</div>
-</div>
-<div id="monitorgonio" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> monitorgonio<a href="goniometer.html#monitorgonio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is a quick hack to display Goniometer output in a user friendly display using <code>shiny</code>. The Goniometer’s screen is tiny, but as mentioned above the hyperterminal mode when connected to a laptop outputs all data to a simple text log file. The shiny app just eavesdrops on this log and uses a key file you load in (csv) to match PTT (hex codes) and display only your platforms of interest. In addition, the program displays the bearing visually on a compass face (circle) and in a table, which is easier to read than the stock software.</p>
-<div class="figure"><span style="display:block;" id="fig:monitorgonio-inaction"></span>
-<img src="images/inaction.gif" alt="Monitorgonio display tab showing simulated behavior in the field." width="90%" />
-<p class="caption">
-Figure 7.3: Monitorgonio display tab showing simulated behavior in the field.
-</p>
-</div>
-<div id="quick-guide" class="section level3 hasAnchor" number="7.5.1">
-<h3><span class="header-section-number">7.5.1</span> Quick guide<a href="goniometer.html#quick-guide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>I’ve actually managed to get this in a package. It isn’t on cran yet though so you’ll have to use <code>devtools</code> to install from github. The dependencies are <code>shiny</code>, <code>shinyFiles</code>, and <code>plotrix</code>.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="goniometer.html#cb26-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;williamcioffi/monitorgonio&quot;</span>)</span></code></pre></div>
-<p>You can run monitorgonio from an interactive r session:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="goniometer.html#cb27-1" tabindex="-1"></a>monitorgonio<span class="sc">::</span><span class="fu">run_monitorgonio</span>()</span></code></pre></div>
-<p>Or you can automatically generate monitorgonio.bat which will run the shiny app for you. I hope with the right paths. Be careful for some reason on windows ‘~’ is interpreted as documents or the onedrive…</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="goniometer.html#cb28-1" tabindex="-1"></a>monitorgonio<span class="sc">::</span><span class="fu">make_bat_file</span>(<span class="st">&quot;monitorgonio.bat&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:monitorgonio-loaddata"></span>
-<img src="images/loaddata.png" alt="Monitorgonio's data loading screen and instructions." width="90%" />
-<p class="caption">
-Figure 7.4: Monitorgonio’s data loading screen and instructions.
-</p>
-</div>
-<p>You’ll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. You can get an example template which comes as a dataframe in the package and save it for editing in your favorite editor.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="goniometer.html#cb29-1" tabindex="-1"></a><span class="co"># a template pttkey comes with the package</span></span>
-<span id="cb29-2"><a href="goniometer.html#cb29-2" tabindex="-1"></a><span class="fu">data</span>(pttkey, <span class="at">package =</span> <span class="st">&quot;monitorgonio&quot;</span>)</span>
-<span id="cb29-3"><a href="goniometer.html#cb29-3" tabindex="-1"></a>pttkey</span></code></pre></div>
-<pre><code>##   PTT     HEX DEPLOYID
-## 1     0A1FBF2    test1
-## 2     D7914E1    test2</code></pre>
-<p>You can also construct one easily in R and save it as a csv.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="goniometer.html#cb31-1" tabindex="-1"></a>pttkey <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb31-2"><a href="goniometer.html#cb31-2" tabindex="-1"></a>    <span class="at">PTT =</span> <span class="fu">c</span>(<span class="st">&quot;111111&quot;</span>, <span class="st">&quot;222222&quot;</span>),</span>
-<span id="cb31-3"><a href="goniometer.html#cb31-3" tabindex="-1"></a>    <span class="at">HEX =</span> <span class="fu">c</span>(<span class="st">&quot;0A1FB2&quot;</span>, <span class="st">&quot;D7914E1&quot;</span>), </span>
-<span id="cb31-4"><a href="goniometer.html#cb31-4" tabindex="-1"></a>    <span class="at">DEPLOYID =</span> <span class="fu">c</span>(<span class="st">&quot;test1&quot;</span>, <span class="st">&quot;test2&quot;</span>)</span>
-<span id="cb31-5"><a href="goniometer.html#cb31-5" tabindex="-1"></a>)</span>
-<span id="cb31-6"><a href="goniometer.html#cb31-6" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="goniometer.html#cb31-7" tabindex="-1"></a><span class="co"># save to file</span></span>
-<span id="cb31-8"><a href="goniometer.html#cb31-8" tabindex="-1"></a><span class="fu">write.table</span>(pttkey, <span class="at">file =</span> <span class="st">&quot;pttkey.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>Note: you don’t really need the PTT column which is for the decimal PTT, unless you just want to keep track of it on the screen. What the Goniometer actually receives is the hex.</p>
-</div>
-<div id="testing" class="section level3 hasAnchor" number="7.5.2">
-<h3><span class="header-section-number">7.5.2</span> Testing<a href="goniometer.html#testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can test monitorgonio a bit even if you don’t have a Goniometer connected or a platform handy. To do this you’ll need two instances of R open. Either start monitor gonio with the .bat script, or start it with <code>run_monitorgonio()</code> and then open a new instance of R.</p>
-<p>In this new instance of R first you’ll need to save the pttkey from above. Save it anywhere you like just remember the path. Next we’ll need a simulated log file. We’ll use a function in a moment to append to the log file as if hits were coming in one by one on the Goniometer, but for now you can just create an empty file:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="goniometer.html#cb32-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;&quot;</span>, <span class="at">file =</span> <span class="st">&quot;testlog&quot;</span>)</span></code></pre></div>
-<p>Now make sure monitorgonio is running and go to the shiny window and select both the log file and the pttkey using the buttons and navigating to where you saved them.</p>
-<p>Finally, run the test with:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="goniometer.html#cb33-1" tabindex="-1"></a>monitorgonio<span class="sc">::</span><span class="fu">simulate_gonio</span>(<span class="st">&quot;testlog&quot;</span>)</span></code></pre></div>
-<p>…and you should see hits appearing in the monitorgonio shiny window.</p>
-</div>
-<div id="one-word-of-caution-about-ptts-and-csvs" class="section level3 hasAnchor" number="7.5.3">
-<h3><span class="header-section-number">7.5.3</span> One word of caution about ptts and csvs<a href="goniometer.html#one-word-of-caution-about-ptts-and-csvs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you are opening these csv files in excel and if your hex has an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into <span class="math inline">\(12345 \cdot 10^2\)</span> by excel. This is quite annoying and will happen every time you open the file. It’ll look something like this:</p>
-<div class="figure"><span style="display:block;" id="fig:excel-badhex"></span>
-<img src="images/badhex.png" alt="The perils of excel and hex." width="90%" />
-<p class="caption">
-Figure 7.5: The perils of excel and hex.
-</p>
-</div>
-<p>The best solution is don’t use excel because it is a terrible csv editor. But many folks are most comfortable with editing csvs in excel so in the past I’ve added a notes column that starts with text so the real hex can be recovered if someone accidentally edits it in excel and saves the result.</p>
-<div class="figure"><span style="display:block;" id="fig:excel-savedhex"></span>
-<img src="images/savedhex.png" alt="Put a notes column and copy and paste hexes back in that might get ruined by excel." width="90%" />
-<p class="caption">
-Figure 7.6: Put a notes column and copy and paste hexes back in that might get ruined by excel.
-</p>
-</div>
-
-</div>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="16">
-<li id="fn16"><p>Woods Hole Group technical staff suggests function should be unaffected<a href="goniometer.html#fnref16" class="footnote-back">↩︎</a></p></li>
-</ol>
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="sattagutils.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="failures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

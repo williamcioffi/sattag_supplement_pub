@@ -17,7 +17,7 @@ Note that in Fig. \@ref(fig:excessive-drift) that while the Zero Depth Offset at
 
 
 
-```r
+``` r
 load("examples/ex_fail_tags_status.RData")
 sta1 <- sta[sta$DeployID == "exfail_2", ]
 days_since_deploy <- (sta1$Received - sta1$Received[1]) / 60 / 60 /24
@@ -43,7 +43,7 @@ legend("bottomleft", legend = "Depth at 0 (meters)", bty = 'n')
 In Fig. \@ref(fig:vrate), you can see biologically impossible vertical velocities would be necessary to complete the recorded dives. It is not immediately clear if this is indeed due to excessive pressure drift or the more typical type of failure where a pressure sensor might pin to a certain value or rapidly read 0 and full scale in succession. It is also possible that both failure modes are present in this data. Nevertheless, a failure is apparent here, and could be systematical screened for if a vertical velocity threshold were selected.
 
 
-```r
+``` r
 load("examples/ex_vrate_tag_beh.Rdata")
 dur <- (beh$DurationMax + beh$DurationMin) / 2
 dep <- (beh$DepthMax + beh$DepthMax) / 2
@@ -71,7 +71,7 @@ This is a bizarre failure. Wildlife Computers technical staff was unable to prov
 ### Example
 
 
-```r
+``` r
 sta2 <- sta[sta$DeployID == "exfail_1", ]
 days_since_deploy <- (sta2$Received - sta2$Received[1]) / 60 / 60 / 24
 
@@ -111,7 +111,7 @@ In addition, I noticed the following (see Fig. \@ref(fig:reset-animation1)):
 ### Examples
 
 
-```r
+``` r
 load("examples/ex_reset_tag_ser.RData")
 plot_series(ser, 
   xaxt = 'n', las = 1, ylab = "Depth (m)", xlab = ""

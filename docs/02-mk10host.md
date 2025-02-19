@@ -14,7 +14,7 @@ Instead there is an option in MK10 Host to output an html file which is called a
 I've written a bit of code to try to parse these automatically and put it in the `sattagutils` package (§ \@ref(sattagutils)). The relevant function is `sattagutils::wch_html2df(dir, file)`. It takes as parameters a directory path of htm files or a single htm file to convert to a `data.frame` which it returns. I try to do the minimum processing at this step, though I change commas to semicolons and otherwise remove characters that would be illegal in an R `data.frame`. The result can be further processed and saved.
 
 
-```r
+``` r
 config_df <- sattagutils::wch_html2df("examples/configs")
 dim(config_df)
 ```
@@ -23,7 +23,7 @@ dim(config_df)
 ## [1]   2 133
 ```
 
-```r
+``` r
 # take a peak at some fields
 knitr::kable(config_df[, c(
   'wch_filename',
@@ -36,10 +36,10 @@ knitr::kable(config_df[, c(
 
 
 
-wch_filename                  Tags_Serial_Number   PTT      Ignore_dives_shallower_than   Ignore_dives_shorter_than 
-----------------------------  -------------------  -------  ----------------------------  --------------------------
-Example1-53643-15A1024.htm    15A1024              53643    50m                           33m                       
-Example2-174749-17A0528.htm   17A0528              174749   75m                           30s                       
+|wch_filename                |Tags_Serial_Number |PTT    |Ignore_dives_shallower_than |Ignore_dives_shorter_than |
+|:---------------------------|:------------------|:------|:---------------------------|:-------------------------|
+|Example1-53643-15A1024.htm  |15A1024            |53643  |50m                         |33m                       |
+|Example2-174749-17A0528.htm |17A0528            |174749 |75m                         |30s                       |
 
 There are some irregularities in the html configuration files including some typos. When these are fixed the `wch_html2df` function will break. In addition, some settings change their label when turned on or off or disappear completely to be replaced by other options.
 
