@@ -1,4 +1,7 @@
-# sattag_supplement_pub
+# sattag\_supplement
 
-If you are interested in contributing contact @williamcioffi
+A bookdown document to serve as supplementary documentation for Wildlife Computers tags and software (especially SPLASH10 tags).
 
+## How to contribute
+
+Contact me directly and I'll give you access to the private source repo.
